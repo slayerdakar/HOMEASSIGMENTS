@@ -21,14 +21,14 @@
 
   <script>
     let firstNameChild = prompt('Введіть ім\'я першої дитини:')
-    let numbeSweetsFirstChild = parseInt(prompt('Введіть кількість цукерок першої дитини:', 1))
+    let numberSweetsFirstChild = parseInt(prompt('Введіть кількість цукерок першої дитини:', 1))
 
     let secondNameChild = prompt('Введіть ім\'я другої дитини:')
-    let numbeSweetsSecondChild = parseInt(prompt('Введіть кількість цукерок другої дитини:', 1))
+    let numberSweetsSecondChild = parseInt(prompt('Введіть кількість цукерок другої дитини:', 1))
 
     if (numbeSweetsFirstChild === numbeSweetsSecondChild)
       alert('Кількість цукерок однакова.')
-    else if (numbeSweetsFirstChild > numbeSweetsSecondChild)
+    else if (numberSweetsFirstChild > numberSweetsSecondChild)
       alert(`У ${firstNameChild} більше цукерок ніж у ${secondNameChild}`)
     else
       alert(`У ${secondNameChild} більше цукерок ніж у ${firstNameChild}`)

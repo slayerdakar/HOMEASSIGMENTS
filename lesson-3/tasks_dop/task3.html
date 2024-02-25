@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1</title>
+
+</head>
+
+<body>
+
+  <h1>Задача 2</h1>
+
+
+  <p>
+    Комп’ютер загадує число від 1 до 10. Двоє користувачів надають свої відповіді. Виграє той, у кого число знаходиться
+    ближче до загаданого комп’ютером числа.
+  </p>
+
+
+  <script>
+
+    const MIN_NUM = 1
+    const MAX_NUM = 10
+
+    let randomNum = MIN_NUM + Math.floor(Math.random() * (MAX_NUM - MIN_NUM + 1))
+
+    //Ввід чисел користувачами
+    let userOne = parseInt(prompt('Користувач перший - введіть число від 1 до 10:'))
+    let userTwo = parseInt(prompt('Користувач другий - введіть число від 1 до 10:'))
+
+    //Змінні в яких буде зберігатися різниця: введеного числа і загаданого комп.
+    let resultUserOne
+    let resultUserTwo
+
+    //перевірка числа на заданний проміжок MIN_NUM - MAX_NUM
+    if ((userOne >= MIN_NUM && userOne <= MAX_NUM) && (userTwo >= MIN_NUM && userTwo <= MAX_NUM)) {
+      if ((userOne - randomNum) === 0) {
+        alert('Виграв перший користувач.')
+        document.write(`
+      Число яке загадав ком\'ютер: ${randomNum}<br>
+      Число першого користувача : ${userOne} <br>
+      Число другого користувача : ${userTwo}`)
+      }
+      else if ((userTwo - randomNum) === 0) {
+        alert('Виграв другий користувач.')
+        document.write(`
+      Число яке загадав ком\'ютер: ${randomNum}<br>
+      Число першого користувача : ${userOne} <br>
+      Число другого користувача : ${userTwo}`)
+      }
+      else if ((userOne - randomNum) === 0 && (userTwo - randomNum) === 0 || userOne === userTwo) {
+        alert('Нічия, або введені числа однакові')
+        document.write(`
+      Число яке загадав ком\'ютер: ${randomNum}`)
+      }
+      if (userOne < randomNum)
+        resultUserOne = randomNum - userOne
+      if (userOne > randomNum)
+        resultUserOne = userOne - randomNum
+      if (userTwo < randomNum)
+        resultUserTwo = randomNum - userTwo
+      if (userTwo > randomNum)
+        resultUserTwo = userTwo - randomNum
+      if (resultUserTwo > resultUserOne) {
+        alert('Виграв перший користувач.')
+        document.write(`
+      Число яке загадав ком\'ютер: ${randomNum}<br>
+      Число першого користувача : ${userOne} <br>
+      Число другого користувача : ${userTwo}`)
+      }
+      else if (resultUserTwo < resultUserOne) {
+        alert('Виграв другий користувач.')
+        document.write(`
+      Число яке загадав ком\'ютер: ${randomNum}<br>
+      Число першого користувача : ${userOne} <br>
+      Число другого користувача : ${userTwo}`)
+      }
+    }
+    //Якщо число не в межах MIN_NUM - MAX_NUM
+    else
+      alert('Помилка!!! Введіть число від 1 до 10')
+
+  </script>
+
+</body>
+
+</html>

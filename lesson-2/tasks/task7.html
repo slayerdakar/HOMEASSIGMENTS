@@ -28,8 +28,11 @@
     let randomMonthNumber = minMonthNumber + Math.floor(Math.random() * (maxMonthNumber - minMonthNumber + 1))
     let randomDayNumber = minDayNumber + Math.floor(Math.random() * (maxDayNumber - minDayNumber + 1))
 
+    let sumMonthDay = randomMonthNumber + randomDayNumber
+
     document.write(`Випадковий номер місяця : ${randomMonthNumber} <br>
-      Випадковий номер дня : ${randomDayNumber}`)
+      Випадковий номер дня : ${randomDayNumber} <br>
+      Сума номерів: ${sumMonthDay}`)
 
   </script>
 

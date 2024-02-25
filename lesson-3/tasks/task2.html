@@ -26,21 +26,28 @@
     let totalMoney = parseFloat(prompt('Введіть кількість грошей:', 0))
     const lotteryTicketPrice = 4
 
-    if (priceProduct <= totalMoney && priceProduct > 0) {
+    if (totalMoney < 0 || priceProduct < 0)
+      alert('Введіть коректні значення - більші за 0!!!')
+    else if (priceProduct === 0 && totalMoney > 0)
+      alert('Введіть ціну товару більше за 0, інакше розрахунки не мають сенсу.')
+    else if (totalMoney === 0 || totalMoney < priceProduct)
+      alert('Нажаль не достатьно коштів.')
+    else if (priceProduct === totalMoney)
+      alert('Ви придбали товар, решта відсутня.')
+    else {
       let restMoney = parseFloat(totalMoney - priceProduct).toFixed(2)
       if (restMoney >= lotteryTicketPrice) {
         let numberTicketsBuy = parseInt(restMoney / lotteryTicketPrice)
-        alert(`Ви придбали товар, вашої решти вистачає на купівлю щасливої лотереї у кількості : ${numberTicketsBuy}`)
+        alert(`Ви придбали товар, вашої решти вистачає на купівлю щасливої лотереї у кількості : ${numberTicketsBuy}.`)
       }
-      else
+      else {
         alert(`Ви придбали товар, вашої решти не вистачає на купівлю щасливої лотереї.`)
+      }
     }
-    else if (totalMoney < 0 || priceProduct < 0)
-      alert('Введіть коректні значення!!!')
-    else if (priceProduct <= 0 && totalMoney > 0)
-      alert('Введіть ціну товару більше за 0')
-    else if (totalMoney === 0 && priceProduct === 0 || totalMoney === 0 || totalMoney < priceProduct)
-      alert('Нажаль не достатьно коштів')
+
+
+
+
 
 
     // Якщо необхідно придбати максимум товарів, а на залишок придбати максимум лотерейних білетів.

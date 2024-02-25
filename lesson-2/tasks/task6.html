@@ -58,16 +58,16 @@
 
   <script>
 
-    let oneProduct = parseFloat(prompt('Введіть вартість першого товару:'))
+    let oneProductPrice = parseFloat(prompt('Введіть вартість першого товару:'))
     let oneProductQuantity = parseInt(prompt('Введіть кількість першого товару:', 1))
-    let twoProduct = parseFloat(prompt('Введіть вартість другого товару:'))
+    let twoProductPrice = parseFloat(prompt('Введіть вартість другого товару:'))
     let twoProductQuantity = parseInt(prompt('Введіть кількість другого товару:', 1))
-    let threeProduct = parseFloat(prompt('Введіть вартість третього товару:'))
+    let threeProductPrice = parseFloat(prompt('Введіть вартість третього товару:'))
     let threeProductQuantity = parseInt(prompt('Введіть кількість третього товару:', 1))
 
-    let oneCostProduct = oneProduct * oneProductQuantity
-    let twoCostProduct = twoProduct * twoProductQuantity
-    let threeCostProduct = threeProduct * threeProductQuantity
+    let oneCostProduct = oneProductPrice * oneProductQuantity
+    let twoCostProduct = twoProductPrice * twoProductQuantity
+    let threeCostProduct = threeProductPrice * threeProductQuantity
     let totalSum = oneCostProduct + twoCostProduct + threeCostProduct
 
     //Рандомний номер касового чеку
@@ -85,7 +85,7 @@
         <div class="cash-receip__item" >
           <div class="cash-receip__quantity">
             <p>${oneProductQuantity} x</p>
-            <p>${oneProduct.toFixed(2)}</p>
+            <p>${oneProductPrice.toFixed(2)}</p>
           </div >
           <div class="cash-receip__final-cost"> 
             <p>Всього перший товар</p>
@@ -95,7 +95,7 @@
         <div class="cash-receip__item">
           <div class="cash-receip__quantity">
             <p>${twoProductQuantity} x</p>
-            <p>${twoProduct.toFixed(2)}</p>
+            <p>${twoProductPrice.toFixed(2)}</p>
           </div >
           <div class="cash-receip__final-cost"> 
             <p>Всього другий товар</p>
@@ -105,7 +105,7 @@
         <div class="cash-receip__item">
           <div class="cash-receip__quantity">
             <p>${threeProductQuantity} x</p>
-            <p>${threeProduct.toFixed(2)}</p>
+            <p>${threeProductPrice.toFixed(2)}</p>
           </div >
           <div class="cash-receip__final-cost"> 
             <p>Всього третій товар</p>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1</title>
+  <style>
+    .smile {
+      font-size: 400px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Задача 1</h1>
+
+
+  <p class="text">
+    На екран виводиться меню: <br>
+    1. Веселий <br>
+    2. Сумний <br>
+    3. Обурений <br> <br>
+    Користувач вводить номер пункту меню і на екрані з’являється відповідне зображення смайла.
+  </p>
+
+
+  <script>
+    let menuNum = parseInt(prompt('Введіть номер пункту меню: \n\n1.Веселий\n2. Сумний\n3. Обурений'))
+    let result
+
+    switch (menuNum) {
+      case 1:
+        result = '&#x1F603;';
+        break;
+      case 2:
+        result = '&#x1F61E;';
+        break;
+      case 3:
+        result = '&#x1F620;';
+        break;
+      default:
+        alert('Помилка!!! Будьте уважні. Введіть число від 1 до 3.')
+        break;
+    }
+    if (menuNum > 0 && menuNum <= 3)
+      document.write(`
+        <div class='smile'>${result}</div>
+      `)
+  </script>
+
+</body>
+
+</html>

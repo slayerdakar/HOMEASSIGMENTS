@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1</title>
+
+</head>
+
+<body>
+
+  <h1>Задача 2</h1>
+
+
+  <p class="text">
+    Комп’ютер випадковим чином вибирає початок і кінець проміжку (проміжок повинен знаходитися в межах від 1 до 100).
+    Користувач вводить число і виграє, якщо число знаходиться у цьому проміжку, або розташоване від нього (від лівого
+    або правого краю) не більше ніж на 10.
+  </p>
+
+
+  <script>
+
+    const MIN_NUM = 1
+    const MAX_NUM = 100
+
+    let segmentValueMin = MIN_NUM + Math.floor(Math.random() * (MAX_NUM - MIN_NUM + 1))
+    let segmentValueMax = MIN_NUM + Math.floor(Math.random() * (MAX_NUM - MIN_NUM + 1))
+
+    //Формую проміжок, щоб перше значення завжди було меньше другого.
+    if (segmentValueMin > segmentValueMax) {
+      let maxIntermediateValue = segmentValueMin
+      segmentValueMin = segmentValueMax
+      segmentValueMax = maxIntermediateValue
+    }
+    //Користувач вводить число
+    let enterNum = parseInt(prompt('Введіть число:'))
+
+    if (enterNum !== 0 && enterNum > 0 && enterNum < 101) {
+      if (enterNum >= segmentValueMin && enterNum <= segmentValueMax || enterNum >= (segmentValueMin - 10) && enterNum <= (segmentValueMax + 10)) {
+        alert('Ви виграли.')
+        document.write(`Введене число: ${enterNum}. <br> Проміжок від ${segmentValueMin} до ${segmentValueMax}.`)
+      }
+      else {
+        alert('Ви програли.')
+        document.write(`Введене число: ${enterNum}. <br> Проміжок від ${segmentValueMin} до ${segmentValueMax}.`)
+
+      }
+    } else {
+      alert('Введіть число від 1 до 100')
+    }
+
+  </script>
+
+</body>
+
+</html>
