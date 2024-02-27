@@ -35,9 +35,9 @@
     else if (priceProduct === totalMoney)
       alert('Ви придбали товар, решта відсутня.')
     else {
-      let restMoney = parseFloat(totalMoney - priceProduct).toFixed(2)
+      let restMoney = totalMoney - priceProduct
       if (restMoney >= lotteryTicketPrice) {
-        let numberTicketsBuy = parseInt(restMoney / lotteryTicketPrice)
+        let numberTicketsBuy = Math.floor(restMoney / lotteryTicketPrice)
         alert(`Ви придбали товар, вашої решти вистачає на купівлю щасливої лотереї у кількості : ${numberTicketsBuy}.`)
       }
       else
