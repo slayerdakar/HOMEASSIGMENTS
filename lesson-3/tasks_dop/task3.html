@@ -27,55 +27,55 @@
     let randomNum = MIN_NUM + Math.floor(Math.random() * (MAX_NUM - MIN_NUM + 1))
 
     //Ввід чисел користувачами
-    let userOne = parseInt(prompt('Користувач перший - введіть число від 1 до 10:'))
-    let userTwo = parseInt(prompt('Користувач другий - введіть число від 1 до 10:'))
+    let userNumberOne = parseInt(prompt('Користувач перший - введіть число від 1 до 10:'))
+    let userNumbeTwo = parseInt(prompt('Користувач другий - введіть число від 1 до 10:'))
 
     //Змінні в яких буде зберігатися різниця: введеного числа і загаданого комп.
     let resultUserOne
     let resultUserTwo
 
-    //перевірка числа на заданний проміжок MIN_NUM - MAX_NUM
-    if ((userOne >= MIN_NUM && userOne <= MAX_NUM) && (userTwo >= MIN_NUM && userTwo <= MAX_NUM)) {
-      if ((userOne - randomNum) === 0) {
+    //перевірка введеного числа, чи в проміжку воно MIN_NUM - MAX_NUM
+    if ((userNumberOne >= MIN_NUM && userNumberOne <= MAX_NUM) && (userNumbeTwo >= MIN_NUM && userNumbeTwo <= MAX_NUM)) {
+      if ((userNumberOne - randomNum) === 0) {
         alert('Виграв перший користувач.')
         document.write(`
-      Число яке загадав ком\'ютер: ${randomNum}<br>
-      Число першого користувача : ${userOne} <br>
-      Число другого користувача : ${userTwo}`)
+          Число яке загадав ком\'ютер: ${randomNum}<br>
+          Число першого користувача : ${userNumberOne} <br>
+          Число другого користувача : ${userNumbeTwo}`)
       }
-      else if ((userTwo - randomNum) === 0) {
+      else if ((userNumbeTwo - randomNum) === 0) {
         alert('Виграв другий користувач.')
         document.write(`
-      Число яке загадав ком\'ютер: ${randomNum}<br>
-      Число першого користувача : ${userOne} <br>
-      Число другого користувача : ${userTwo}`)
+          Число яке загадав ком\'ютер: ${randomNum}<br>
+          Число першого користувача : ${userNumberOne} <br>
+          Число другого користувача : ${userNumbeTwo}`)
       }
-      else if ((userOne - randomNum) === 0 && (userTwo - randomNum) === 0 || userOne === userTwo) {
+      else if ((userNumberOne - randomNum) === 0 && (userNumbeTwo - randomNum) === 0 || userNumberOne === userNumbeTwo) {
         alert('Нічия, або введені числа однакові')
         document.write(`
-      Число яке загадав ком\'ютер: ${randomNum}`)
+          Число яке загадав ком\'ютер: ${randomNum}`)
       }
-      if (userOne < randomNum)
-        resultUserOne = randomNum - userOne
-      if (userOne > randomNum)
-        resultUserOne = userOne - randomNum
-      if (userTwo < randomNum)
-        resultUserTwo = randomNum - userTwo
-      if (userTwo > randomNum)
-        resultUserTwo = userTwo - randomNum
+      if (userNumberOne < randomNum)
+        resultUserOne = randomNum - userNumberOne
+      if (userNumberOne > randomNum)
+        resultUserOne = userNumberOne - randomNum
+      if (userNumbeTwo < randomNum)
+        resultUserTwo = randomNum - userNumbeTwo
+      if (userNumbeTwo > randomNum)
+        resultUserTwo = userNumbeTwo - randomNum
       if (resultUserTwo > resultUserOne) {
         alert('Виграв перший користувач.')
         document.write(`
-      Число яке загадав ком\'ютер: ${randomNum}<br>
-      Число першого користувача : ${userOne} <br>
-      Число другого користувача : ${userTwo}`)
+          Число яке загадав ком\'ютер: ${randomNum}<br>
+          Число першого користувача : ${userNumberOne} <br>
+          Число другого користувача : ${userNumbeTwo}`)
       }
       else if (resultUserTwo < resultUserOne) {
         alert('Виграв другий користувач.')
         document.write(`
-      Число яке загадав ком\'ютер: ${randomNum}<br>
-      Число першого користувача : ${userOne} <br>
-      Число другого користувача : ${userTwo}`)
+          Число яке загадав ком\'ютер: ${randomNum}<br>
+          Число першого користувача : ${userNumberOne} <br>
+          Число другого користувача : ${userNumbeTwo}`)
       }
     }
     //Якщо число не в межах MIN_NUM - MAX_NUM

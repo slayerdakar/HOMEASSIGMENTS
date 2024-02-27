@@ -28,7 +28,7 @@
     let segmentValueMin = MIN_NUM + Math.floor(Math.random() * (MAX_NUM - MIN_NUM + 1))
     let segmentValueMax = MIN_NUM + Math.floor(Math.random() * (MAX_NUM - MIN_NUM + 1))
 
-    //Формую проміжок, щоб перше значення завжди було меньше другого.
+    //Формую проміжок (від - до), щоб перше значення завжди було меньше другого.
     if (segmentValueMin > segmentValueMax) {
       let maxIntermediateValue = segmentValueMin
       segmentValueMin = segmentValueMax
@@ -37,7 +37,7 @@
     //Користувач вводить число
     let enterNum = parseInt(prompt('Введіть число:'))
 
-    if (enterNum !== 0 && enterNum > 0 && enterNum < 101) {
+    if (enterNum >= MIN_NUM && enterNum <= MAX_NUM) {
       if (enterNum >= segmentValueMin && enterNum <= segmentValueMax || enterNum >= (segmentValueMin - 10) && enterNum <= (segmentValueMax + 10)) {
         alert('Ви виграли.')
         document.write(`Введене число: ${enterNum}. <br> Проміжок від ${segmentValueMin} до ${segmentValueMax}.`)
@@ -45,11 +45,10 @@
       else {
         alert('Ви програли.')
         document.write(`Введене число: ${enterNum}. <br> Проміжок від ${segmentValueMin} до ${segmentValueMax}.`)
-
       }
-    } else {
+    } else
       alert('Введіть число від 1 до 100')
-    }
+
 
   </script>
 
