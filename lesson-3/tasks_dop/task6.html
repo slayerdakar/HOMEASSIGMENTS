@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1</title>
+
+</head>
+
+<body>
+
+  <h1>Задача 6</h1>
+
+
+  <p>
+    Полювання. Заєць знаходиться у верхньому лівому кутку поля. Поле складається з двох рядків і двох стовпців.
+  </p>
+  <img src="./img/task-6.jpg" alt="image">
+  <p>
+    За один крок заєць може стрибнути у будь-яку із вільних клітинок. Користувач ставить пастку вказуючи номер рядка і
+    стовпця клітинки. Якщо заєць потрапляє у пастку, то користувач виграв і отримав 100 балів. Якщо користувач зловить
+    зайця за другою спробою, то одержує 50 балів.
+  </p>
+
+
+  <script>
+
+    let hareStartingPositionColumn = 1
+    let hareStartingPositionLine = 1
+    const MIN_VALUE_COLUMN = 1
+    const MAX_VALUE_COLUMN = 2
+    const MIN_VALUE_LINE = MIN_VALUE_COLUMN
+    const MAX_VALUE_LINE = MAX_VALUE_COLUMN
+
+    let userInputColumnNum = parseInt(prompt(`У Вас є дві спроби щоб зловити зайця.\nДля того щоб поставити пастку, Вам необхідно ввести номер колонки та номер строки(номер колонкі і строки мають бути у диапазоні від 1 до 2).\nТреба зазначити, при першому вводі значень вони не можуть бути : Колонка - ${hareStartingPositionColumn}, Строка - ${hareStartingPositionLine},  тому що це є стартова позиція зайця.\n\n Введідь номер стовбця :`))
+
+    let userInputLineNum = parseInt(prompt('Введідь номер рядка :'))
+
+    if (userInputColumnNum === hareStartingPositionColumn && userInputLineNum === hareStartingPositionLine) {
+      alert(`Будьте уважні!!! При першому вводі значень, значення не можуть бути : Колонка - ${hareStartingPositionColumn}, Строка - ${hareStartingPositionLine}`)
+    }
+
+    //Перевірка на коректність введених данніх
+    else if ((userInputColumnNum >= MIN_VALUE_COLUMN && userInputColumnNum <= MAX_VALUE_COLUMN) && (userInputLineNum >= MIN_VALUE_LINE && userInputLineNum <= MAX_VALUE_LINE)) {
+
+      let pointsReceived
+
+      let positionColumnRandom = MIN_VALUE_COLUMN + Math.floor(Math.random() * (MAX_VALUE_COLUMN - MIN_VALUE_COLUMN + 1))
+      let positionLineRandom = MIN_VALUE_LINE + Math.floor(Math.random() * (MAX_VALUE_LINE - MIN_VALUE_LINE + 1))
+
+
+      if (positionColumnRandom === userInputColumnNum && positionLineRandom === userInputLineNum) {
+        pointsReceived = 100
+        alert(`Виграш, заєць потрапив у пастку з першого разу.\nОтриманно ${pointsReceived} балів.`)
+      }
+      //Якщо заєць не зрушив з місця
+      else if (positionColumnRandom === hareStartingPositionColumn && positionLineRandom === hareStartingPositionLine) {
+        alert(`Заєць хитрий, відмовився рухатисть, щось мабуть підозрює))).\nПереходьте до другої спроби.\n\nТреба зазначити, що введені значення не мають співпадаюти з позицією зайця: \nКолонка - ${hareStartingPositionColumn}\nСтрока - ${hareStartingPositionLine}`)
+        let userInputColumnNum = parseInt(prompt('Друга спроба\nВведідь номер стовбця:'))
+        let userInputLineNum = parseInt(prompt('Друга спроба\nВведідь номер рядка :'))
+
+        if (userInputColumnNum === hareStartingPositionColumn && userInputLineNum === hareStartingPositionLine) {
+          alert(`Будьте уважні!!! Введені значення співпадають з позицією зайця:\nКолонка = ${hareStartingPositionColumn}\nРядок = ${hareStartingPositionLine}`)
+        }
+
+        //Перевірка на коректність введених данніх
+        else if ((userInputColumnNum >= MIN_VALUE_COLUMN && userInputColumnNum <= MAX_VALUE_COLUMN) && (userInputLineNum >= MIN_VALUE_LINE && userInputLineNum <= MAX_VALUE_LINE)) {
+          let positionColumnRandom = MIN_VALUE_COLUMN + Math.floor(Math.random() * (MAX_VALUE_COLUMN - MIN_VALUE_COLUMN + 1))
+          let positionLineRandom = MIN_VALUE_LINE + Math.floor(Math.random() * (MAX_VALUE_LINE - MIN_VALUE_LINE + 1))
+
+          if (positionColumnRandom === userInputColumnNum && positionLineRandom === userInputLineNum) {
+            pointsReceived = 50
+            alert(`Виграш, заєць потрапив у пастку з другого разу.\nОтриманно ${pointsReceived} балів.`)
+          }
+          else
+            alert('Везучій заєць попався. Вам не вдалося зловити його.')
+        }
+        else
+          alert('Введені не коректі значення, значення виходять за межі поля!!!')
+      }
+      else {
+        alert(`Вам не вдалося зловити зайця за першим разом.\n\nЗараз заяць знаходиться по таких координатах:\nКолонка - ${positionColumnRandom}\nРядок - ${positionLineRandom}\nТреба зазначити, що введені значення не мають співпадаюти з позицією зайця!!!\nПереходьте до другої спроби.`)
+
+        let userInputColumnNum = parseInt(prompt('Друга спроба\nВведідь номер стовбця:'))
+        let userInputLineNum = parseInt(prompt('Друга спроба\nВведідь номер рядка :'))
+
+        if (userInputColumnNum === positionColumnRandom && userInputLineNum === positionLineRandom) {
+          alert(`Будьте уважні!!! Введені значення співпадають з позицією зайця:\nКолонка = ${positionColumnRandom}\nРядок = ${positionLineRandom}`)
+        }
+
+        //Перевірка на коректність введених данніх
+        else if ((userInputColumnNum >= MIN_VALUE_COLUMN && userInputColumnNum <= MAX_VALUE_COLUMN) && (userInputLineNum >= MIN_VALUE_LINE && userInputLineNum <= MAX_VALUE_LINE)) {
+          let positionColumnRandom = MIN_VALUE_COLUMN + Math.floor(Math.random() * (MAX_VALUE_COLUMN - MIN_VALUE_COLUMN + 1))
+          let positionLineRandom = MIN_VALUE_LINE + Math.floor(Math.random() * (MAX_VALUE_LINE - MIN_VALUE_LINE + 1))
+
+          if (positionColumnRandom === userInputColumnNum && positionLineRandom === userInputLineNum) {
+            pointsReceived = 50
+            alert(`Виграш, заєць потрапив у пастку з другого разу.\nОтриманно ${pointsReceived} балів.`)
+          }
+          else
+            alert('Везучій заєць попався. Вам не вдалося зловити його.')
+        }
+        else
+          alert('Введені не коректі значення, значення виходять за межі поля!!!')
+      }
+    }
+    else
+      alert('Введені не коректі значення, значення виходять за межі поля!!!')
+
+
+  </script>
+
+</body>
+
+</html>
