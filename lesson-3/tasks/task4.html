@@ -29,7 +29,7 @@
     let workerAgeRange = 60
 
 
-    if (1 < personAge && personAge < 120) {
+    if (1 <= personAge && personAge <= 120) {
       if (personAge <= childAgeRange) alert('Дитина')
       else if (personAge <= schoolboyAgeRange) alert('Школяр')
       else if (personAge <= studentAgeRange) alert('Студент')
