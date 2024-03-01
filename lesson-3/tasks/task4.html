@@ -28,14 +28,16 @@
     let studentAgeRange = 23
     let workerAgeRange = 60
 
+    let result
 
     if (personAge < 1 || personAge > 120) result = 'Некоректний вік'
-    else if (personAge <= childAgeRange) alert('Дитина')
-    else if (personAge <= schoolboyAgeRange) alert('Школяр')
-    else if (personAge <= studentAgeRange) alert('Студент')
-    else if (personAge <= workerAgeRange) alert('Працівник')
-    else alert('Пенсіонер')
+    else if (personAge <= childAgeRange) result = 'Дитина'
+    else if (personAge <= schoolboyAgeRange) result = 'Школяр'
+    else if (personAge <= studentAgeRange) result = 'Студент'
+    else if (personAge <= workerAgeRange) result = 'Працівник'
+    else result = 'Пенсіонер'
 
+    document.write(result)
 
   </script>
 

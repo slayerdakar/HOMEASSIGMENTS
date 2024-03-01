@@ -45,16 +45,23 @@
 
 
       //Ввод користувачем значення першого пострілу
-      let userShotOne = parseInt(prompt(`Гра почалася. \nЗробіть свій перший постріл від 1 до ${playingFieldSize}.`))
+      let userShot = parseInt(prompt(`Гра почалася. \nЗробіть свій перший постріл від 1 до ${playingFieldSize}.`))
 
       //Перевірка першого значення(пострілу), що воно в межах поля
-      if (userShotOne > 0 && userShotOne <= playingFieldSize) {
+      if (userShot > 0 && userShot <= playingFieldSize) {
         //Попадання з першого пострілу
-        if (userShotOne === shipPositionRandom)
+        if (userShot === shipPositionRandom)
           alert('Влучний постріл, корабель потоплено з першого пострілу!')
         //Пошкодження корабля (або перед ,або за кораблем)
-        else if (userShotOne === shipPositionRandom - 1 || userShotOne === shipPositionRandom + 1) {
-          alert('Корабель пошкоджено! Приготуйся до другого пострілу.')
+
+        else if (userShot !== shipPositionRandom) {
+
+          if (true) {
+            if (userShot === shipPositionRandom - 1 || userShot === shipPositionRandom + 1)
+              alert('Корабель пошкоджено! Приготуйся до другого пострілу.')
+            else
+              alert('Не влучив, приготуйся до другого пострілу.')
+          }
           //Ввод користувачем значення другого пострілу
           let userShotTwo = parseInt(prompt(`Зробіть свій другий постріл від 1 до ${playingFieldSize}.`))
           //Перевірка другого значення(пострілу), що воно в межах поля
@@ -73,28 +80,7 @@
           else
             alert(`Не корректно введене значення!!! Постріл має бути в межах ігрового поля від 1 до ${playingFieldSize}`)
         }
-        //Другий постріл після промаху першого
-        else {
-          alert('Не влучив, приготуйся до другого пострілу.')
-          //Ввод користувачем значення другого пострілу
-          let userShotTwo = parseInt(prompt(`Зробіть свій другий постріл від 1 до ${playingFieldSize}.`))
-          //Перевірка другого значення(пострілу), що воно в межах поля
-          if (userShotTwo > 0 && userShotTwo <= playingFieldSize) {
-            //Попадання з другого пострілу
-            if (userShotTwo === shipPositionRandom)
-              alert('Влучний постріл, корабель потоплено з другого пострілу!')
-            //Пошкодження корабля (або перед ,або за кораблем)
-            else if (userShotTwo === shipPositionRandom - 1 || userShotTwo === shipPositionRandom + 1)
-              alert('Гра завершена!\nКорабель пошкоджено, це був твій другій постріл, наступного разу пощастить.')
-            //Не влучив
-            else
-              alert('Гра завершена!\nНе влучив, наступного разу пощастить.')
-          }
-          //Гра зупинена значення(постріл) за межами поля
-          else
-            alert(`Не корректно введене значення!!! Постріл має бути в межах ігрового поля від 1 до ${playingFieldSize}`)
-        }
-        //Гра зупинена значення(постріл) за межами поля
+
       } else
         alert(`Не корректно введене значення!!! Постріл має бути в межах ігрового поля від 1 до ${playingFieldSize}`)
     }

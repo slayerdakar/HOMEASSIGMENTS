@@ -25,10 +25,11 @@
 
     let randomNumber = MIN_NUM + Math.floor(Math.random() * (MAX_NUM - MIN_NUM + 1))
 
-    let enterNumberOne = parseInt(prompt('Введіть число від 1 до 5, перша спроба:'))
+    let enterNumber = parseInt(prompt('Введіть число від 1 до 5, перша спроба:'))
+    let enterNumberOne = enterNumber
 
-    if (enterNumberOne >= MIN_NUM && enterNumberOne <= MAX_NUM) {
-      if (enterNumberOne === randomNumber) {
+    if (enterNumber >= MIN_NUM && enterNumber <= MAX_NUM) {
+      if (enterNumber === randomNumber) {
         alert('Вітаю, ви вгадали.')
         document.write(`
         <strong>Ви вгадали з 1-ої спроби, крутяк! Це число ${randomNumber}.</strong>
@@ -36,9 +37,10 @@
       }
       else {
         alert('Не вгадали, у вас є ще одна спроба, щасти) \n\nНатисніть "ENTER" або "OK" для продовження.')
-        let enterNumberTwo = parseInt(prompt('Введіть число від 1 до 5, друга спроба'))
-        if (enterNumberTwo >= MIN_NUM && enterNumberTwo <= MAX_NUM) {
-          if (enterNumberTwo === randomNumber) {
+        let enterNumber = parseInt(prompt('Введіть число від 1 до 5, друга спроба'))
+        let enterNumberTwo = enterNumber
+        if (enterNumber >= MIN_NUM && enterNumber <= MAX_NUM) {
+          if (enterNumber === randomNumber) {
             alert('Вітаю, ви вгадали.')
             document.write(`
             <strong>Ви вгадали з 2-ої спроби, молодець! Це число ${randomNumber}.</strong>`)
