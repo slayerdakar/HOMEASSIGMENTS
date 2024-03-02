@@ -37,7 +37,7 @@
       console.log(shipPositionRandom);
 
 
-      //Ввод користувачем значення першого пострілу
+      //Ввод користувачем значенняпострілу
       let userShotOne = parseInt(prompt(`Гра почалася. \nЗробіть свій перший постріл від 1 до ${playingFieldSize}.`))
 
       //Перевірка першого значення(пострілу), що воно в межах поля
@@ -45,37 +45,43 @@
         //Попадання з першого пострілу
         if (userShotOne === shipPositionRandom)
           alert('Влучний постріл, корабель потоплено з першого пострілу!')
-        //Пошкодження корабля (або перед ,або за кораблем)
-        else if (userShotOne === shipPositionRandom - 1 || userShotOne === shipPositionRandom + 1) {
-          alert('Корабель пошкоджено! Приготуйся до другого пострілу.')
-
+        //Промах
+        else if (userShotOne !== shipPositionRandom) {
+          //Перевірка - пошкоджен корабель чи ні(вивод відповідного сповіщення користовачу)
+          if (true) {
+            if (userShotOne === shipPositionRandom - 1 || userShotOne === shipPositionRandom + 1) {
+              alert('Корабель пошкоджено! Приготуйся до другого пострілу.')
+            }
+            else {
+              alert('Не влучив, приготуйся до другого пострілу.')
+            }
+          }
           //Змінні для визначення напрямку руху корабля після першого пострілу
           //Рух вліво
           const MOVING_SHIP_LEFT = 0
           //Рух вправо
           const MOVING_SHIP_RIGHT = 1
-
           //Генеруємо випадкове значення, напрямку руху корабля
           let movingShipPositionRandom = MOVING_SHIP_LEFT + Math.floor(Math.random() * (MOVING_SHIP_RIGHT - MOVING_SHIP_LEFT + 1))
           //Для зручності, щоб в консолі бачити в яку сторону маэ бути рух позицію корабля
           console.log(`Рандомне значення за яким визначається напрям зміни позиції кораблю: ${movingShipPositionRandom}`);
           //Створюємо змінну в якій будемо зберігати значення НОВОЇ позиції кораблю
           let newShipPosition
-          //Перевірка - якщо значення 0 (рух вліво) 
+          //Перевірка - якщо значення 0 (рух вліво)
           if (movingShipPositionRandom === MOVING_SHIP_LEFT) {
             //Присвоюємо нову позицію корабля - рух вліво
             newShipPosition = shipPositionRandom - 1
             //Для зручності, щоб в консолі бачити нову позицію корабля
             console.log(`Нова позиція кораблю: ${newShipPosition}`);
-            //Перевірка - чи виходить позиція корабля за межі ігрового поля  
+            //Перевірка - чи виходить позиція корабля за межі ігрового поля
             if (newShipPosition < MIN_SHIP_POSITION_RANGE) {
-              //Нова позиція корабля виходить за межі ігрового поля, тому корабель зміщюємо вправо як єдиний варіант (при умові що корабель має змінити позицію 100%)  
+              //Нова позиція корабля виходить за межі ігрового поля, тому корабель зміщюємо вправо як єдиний варіант (при умові що корабель має змінити позицію 100%)
               newShipPosition = shipPositionRandom + 1
               //Для зручності, щоб в консолі бачити нову позицію корабля
               console.log(`Нова позиція кораблю: ${newShipPosition}`);
             }
           }
-          //Перевірка - якщо значення 1 (рух вправо) 
+          //Перевірка - якщо значення 1 (рух вправо)
           if (movingShipPositionRandom === MOVING_SHIP_RIGHT) {
             newShipPosition = shipPositionRandom + 1
             console.log(`Нова позиція кораблю: ${newShipPosition}`);
@@ -84,7 +90,6 @@
               console.log(`Нова позиція кораблю: ${newShipPosition}`);
             }
           }
-
           //Ввод користувачем значення другого пострілу
           let userShotTwo = parseInt(prompt(`Зробіть свій другий постріл від 1 до ${playingFieldSize}.`))
           //Перевірка другого значення(пострілу), що воно в межах поля
@@ -103,57 +108,13 @@
           else
             alert(`Не корректно введене значення!!! Постріл має бути в межах ігрового поля від 1 до ${playingFieldSize}`)
         }
-        //Другий постріл після промаху першого
-        else {
-          alert('Не влучив, приготуйся до другого пострілу.')
-
-          const MOVING_SHIP_LEFT = 0
-          const MOVING_SHIP_RIGHT = 1
-
-          let movingShipPositionRandom = MOVING_SHIP_LEFT + Math.floor(Math.random() * (MOVING_SHIP_RIGHT - MOVING_SHIP_LEFT + 1))
-          console.log(`Рандомне значення за яким визначається напрям зміни позиції кораблю: ${movingShipPositionRandom}`);
-
-          if (movingShipPositionRandom === MOVING_SHIP_LEFT) {
-            newShipPosition = shipPositionRandom - 1
-            console.log(`Нова позиція кораблю: ${newShipPosition}`);
-            if (newShipPosition < MIN_SHIP_POSITION_RANGE) {
-              newShipPosition = shipPositionRandom + 1
-              console.log(`Нова позиція кораблю: ${newShipPosition}`);
-            }
-          }
-          if (movingShipPositionRandom === MOVING_SHIP_RIGHT) {
-            newShipPosition = shipPositionRandom + 1
-            console.log(`Нова позиція кораблю: ${newShipPosition}`);
-            if (newShipPosition > MAX_SHIP_POSITION_RANGE) {
-              newShipPosition = shipPositionRandom - 1
-              console.log(`Нова позиція кораблю: ${newShipPosition}`);
-            }
-          }
-          //Ввод користувачем значення другого пострілу
-          let userShotTwo = parseInt(prompt(`Зробіть свій другий постріл від 1 до ${playingFieldSize}.`))
-          //Перевірка другого значення(пострілу), що воно в межах поля
-          if (userShotTwo > 0 && userShotTwo <= playingFieldSize) {
-            //Попадання з другого пострілу
-            if (userShotTwo === newShipPosition)
-              alert('Влучний постріл, корабель потоплено з другого пострілу!')
-            //Пошкодження корабля (або перед ,або за кораблем)
-            else if (userShotTwo === newShipPosition - 1 || userShotTwo === newShipPosition + 1)
-              alert('Гра завершена!\nКорабель пошкоджено, це був твій другій постріл, наступного разу пощастить.')
-            //Не влучив
-            else
-              alert('Гра завершена!\nНе влучив, наступного разу пощастить.')
-          }
-          //Гра зупинена значення(постріл) за межами поля
-          else
-            alert(`Не корректно введене значення!!! Постріл має бути в межах ігрового поля від 1 до ${playingFieldSize}`)
-        }
-        //Гра зупинена значення(постріл) за межами поля
-      } else
+      }
+      else
         alert(`Не корректно введене значення!!! Постріл має бути в межах ігрового поля від 1 до ${playingFieldSize}`)
     }
-    //Гра зупинена не корректно введено розмір поля
     else
       alert('Введена к-сть квадратів поля меньше 2!!!')
+
 
 
   </script>
