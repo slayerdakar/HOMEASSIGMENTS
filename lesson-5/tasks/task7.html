@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 7</title>
+</head>
+
+<body>
+
+  <h1>Задача 7</h1>
+
+  <div>
+    <p>
+      Вивести на екран N абзаців (N вводиться користувачем) за зразком:
+    </p>
+
+  </div>
+
+  <script>
+
+    let num = 1
+    document.write(`<div class='table'>`)
+    for (let i = 0; i < 3; i++) {
+      document.write(`<table border='4px'>`)
+      for (let i = 0; i < 3; i++) {
+        document.write('<tr>')
+        for (let i = 0; i < 3; i++) {
+          document.write(`<td>${num}</td>`)
+          num++
+        }
+        document.write('</tr>')
+      }
+      document.write('</table>')
+    }
+    document.write('</div>')
+
+  </script>
+
+</body>
+
+</html>
