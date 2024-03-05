@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 14</title>
+</head>
+
+<body>
+
+  <h1>Задача 14</h1>
+
+  <div>
+    <p>
+      Каса. Користувачу повідомляють суму, яку йому треба сплатити. Користувач поступово вводить суму грошей до тих пір,
+      поки суми не буде достатньо для оплати товарів (кожного разу користувачу повідомляють, яку ще суму потрібно
+      ввести).
+    </p>
+
+  </div>
+
+  <script>
+
+
+    const paymentAmount = 1 + Math.floor(Math.random() * 100)
+    alert(`Вам потрібно сплатити : ${paymentAmount}$`)
+    let remainsPaid = 0
+
+    while (remainsPaid < paymentAmount) {
+      const enterUserMoney = parseFloat(prompt('Введіть суму яку можете сплатити :'))
+      remainsPaid += paymentAmount - (paymentAmount - enterUserMoney)
+      if (remainsPaid < paymentAmount)
+        alert(`Залишилось оплатити ${paymentAmount - remainsPaid}$`)
+    }
+    alert('Сума достатьня для оплати товарів.')
+
+
+
+
+  </script>
+
+</body>
+
+</html>
