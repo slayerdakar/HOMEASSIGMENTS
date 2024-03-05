@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 11</title>
+</head>
+
+<body>
+
+  <h1>Задача 11</h1>
+
+  <div>
+    <p>
+      Знайти суму 5 непарних чисел, що знаходяться між заданими користувачем числами.
+    </p>
+
+  </div>
+
+  <script>
+
+
+    let firstNum = parseInt(prompt('Введіть початкове число:'))
+    let lastNum = parseInt(prompt('Введіть кінцеве число:'))
+    let sumUnpaired = 0
+    let count = 0
+
+    firstNum % 2 !== 0 ? true : firstNum += 1
+    for (let unpairedNum = firstNum; unpairedNum <= lastNum; unpairedNum += 2) {
+      sumUnpaired += unpairedNum
+      count += 1
+      if (count === 5) {
+        break
+      }
+    }
+    document.write(`Сума непарних чисел = ${sumUnpaired}`)
+
+  </script>
+
+</body>
+
+</html>
