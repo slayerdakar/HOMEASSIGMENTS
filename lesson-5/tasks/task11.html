@@ -21,18 +21,20 @@
   <script>
 
 
-    let firstNum = parseInt(prompt('Введіть початкове число:'))
+    let firstNum = parseInt(prompt('Введіть початкове число:')) + 1
     let lastNum = parseInt(prompt('Введіть кінцеве число:'))
     let sumUnpaired = 0
     let count = 0
+    if (lastNum < firstNum) {
+      let intermediate = firstNum
+      firstNum = lastNum + 1
+      lastNum = intermediate - 1
+    }
 
     firstNum % 2 !== 0 ? true : firstNum += 1
-    for (let unpairedNum = firstNum; unpairedNum <= lastNum; unpairedNum += 2) {
+    for (let unpairedNum = firstNum; unpairedNum < lastNum && count < 5; unpairedNum += 2) {
       sumUnpaired += unpairedNum
       count += 1
-      if (count === 5) {
-        break
-      }
     }
     document.write(`Сума непарних чисел = ${sumUnpaired}`)
 

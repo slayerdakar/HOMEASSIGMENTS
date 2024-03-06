@@ -23,24 +23,22 @@
 
 
     //Ввод користувачем значення розміру ігрового поля
-    const N = parseInt(prompt('Введідь значення початку ігрового поля :'))
-    const M = parseInt(prompt('Введідь значення кінця ігрового поля :'))
+    const N = parseInt(prompt('Задайте розмір поля -  рядок :'))
+    const M = parseInt(prompt('Задайте розмір поля -  стовпчик :'))
 
     //Ввод користувачем к-сті доступних снарядів (к-сть пострилів)
     let K = parseInt(prompt('Введідь значення к-сті снарядів :'))
 
-    const MIN_SHIP_POSITION_RANGE = N
-    const MAX_SHIP_POSITION_RANGE = M
-
     //Генеруємо випадкову позицію корабля
-    let shipPositionRandom = MIN_SHIP_POSITION_RANGE + Math.floor(Math.random() * (MAX_SHIP_POSITION_RANGE - MIN_SHIP_POSITION_RANGE + 1))
-    console.log(shipPositionRandom);
+    let shipPositionRandomRow = 1 + Math.floor(Math.random() * N)
+    let shipPositionRandomCol = 1 + Math.floor(Math.random() * M)
 
     let shellsLeft = K
 
     for (let shot = 0; shot < K; shot++) {
-      let userShot = parseInt(prompt('Зробіть постріл'))
-      if (userShot === shipPositionRandom) {
+      let userShotRow = parseInt(prompt('Введіть першу координату для пострілу (рядок)'))
+      let userShotCol = parseInt(prompt('Введіть другу координату для пострілу (стовпчик)'))
+      if (userShotRow === shipPositionRandomRow && userShotCol === shipPositionRandomCol) {
         alert('Влучний постріл, корабель потоплено!')
         break
       }
