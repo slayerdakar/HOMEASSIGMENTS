@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 9</title>
+
+</head>
+
+<body>
+
+  <h1>Задача 9</h1>
+
+  <div>
+    <p>
+      Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати confirm).
+    </p>
+
+  </div>
+
+  <script>
+    alert('Загадайте число від 1 до 10')
+    let askNum
+    do {
+      let randomNumComp = 1 + Math.floor(Math.random() * 10)
+      askNum = confirm(`Загадане число ${randomNumComp}`)
+    } while (askNum === false);
+
+    alert('Вгадав')
+
+  </script>
+
+</body>
+
+</html>

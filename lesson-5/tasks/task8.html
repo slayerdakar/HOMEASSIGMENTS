@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 8</title>
+
+</head>
+
+<body>
+
+  <h1>Задача 8</h1>
+
+  <div>
+    <p>
+      Користувач загадує число. За 3 спроби комп’ютер намагається вгадати число користувача (використати confirm).
+    </p>
+
+  </div>
+
+  <script>
+    alert('Загадайте число від 1 до 10')
+
+    for (let i = 0; i < 3; i++) {
+      let randomNumComp = 1 + Math.floor(Math.random() * 10)
+      if (confirm(`Це число ${randomNumComp}?`) === true) {
+        alert('Вгадав')
+        break
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>
