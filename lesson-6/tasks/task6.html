@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 6</title>
+</head>
+
+<body>
+
+  <h1>Задача 6</h1>
+
+  <div>
+    <p>
+      Інвестор вклав S тис. грн на 20 років під 20% річних, податок складає 5% від суми прибутку. Визначити за допомогою
+      циклів суму, яку він одержить
+    </p>
+
+  </div>
+
+  <script>
+
+    const investingMoney = parseFloat(prompt('Введіть суму вкладу, тис. грн.:', 1))
+    let percentageYear = 0.2
+    let tax = 0.05
+    let percentageOfInvestment = 0
+    let totalPaymentAmount = 0
+    for (let year = 0; year < 20; year++) {
+      percentageOfInvestment += investingMoney * 1000 * percentageYear
+    }
+    totalPaymentAmount = investingMoney * 1000 + percentageOfInvestment - percentageOfInvestment * tax
+    document.write(`Загальна сума (вклад + відсоток) яку ви отрімаєте за 20 років: ${totalPaymentAmount} грн.`)
+  </script>
+
+</body>
+
+</html>
