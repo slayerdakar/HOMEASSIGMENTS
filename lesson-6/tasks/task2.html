@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2</title>
+  <style>
+    .task2 p {
+      margin: 0;
+    }
+
+    .task2 {
+      border: 2px solid #000;
+      margin-bottom: 50px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Задача 2</h1>
+
+  <div>
+    <p>Відобразити трикутник за допомогою символів «о»</p>
+    <div class="task2">
+      <p>о</p>
+      <p>оо</p>
+      <p>ооо</p>
+      <p>оооо</p>
+      <p>ооооо</p>
+      <p>оооооо</p>
+    </div>
+  </div>
+
+  <script>
+
+    for (let rowNum = 1; rowNum <= 6; rowNum++) {
+      for (let colNum = 0; colNum < rowNum; colNum++) {
+        document.write('o')
+      }
+      document.write('<br>')
+    }
+
+  </script>
+
+</body>
+
+</html>
