@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 7</title>
+</head>
+
+<body>
+
+  <h1>Задача 7</h1>
+
+  <div>
+    <p>
+      Інвестор вклав S тис. грн на 20 років під 20% річних, а потім на 17 років під 27% річних. Визначити за допомогою
+      циклів суму, яку він одержить.
+    </p>
+
+  </div>
+
+  <script>
+
+    const investingMoney = parseFloat(prompt('Введіть суму вкладу, тис. грн.:', 1))
+    let percentageYear = 20
+    let totalYears = 20
+    let makingMoney = 0
+    let totalPaymentAmount = 0
+    let moneyConversion = investingMoney * 1000
+    let totalAmountOfDeposits = 0
+
+    for (let i = 0; i < 2; i++) {
+      for (let year = 0; year < totalYears; year++) {
+        makingMoney += moneyConversion * (percentageYear / 100)
+      }
+      totalPaymentAmount = moneyConversion + makingMoney
+      document.write(`Загальна сума (вклад + відсоток) яку ви отримаєте за ${totalYears} років при ${percentageYear}% річних: ${totalPaymentAmount} грн.<br>`)
+      totalAmountOfDeposits += totalPaymentAmount
+      percentageYear = 27
+      totalYears = 17
+      makingMoney = 0
+    }
+    document.write(`Загальна сума (вклад + відсоток) за 2 вклади: ${totalAmountOfDeposits - moneyConversion} грн.`)
+
+  </script>
+
+</body>
+
+</html>
