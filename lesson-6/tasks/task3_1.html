@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 3.1</title>
+  <style>
+    .task3-1 p {
+      margin: 0;
+    }
+
+    .task3-1 {
+      border: 2px solid #000;
+      margin-bottom: 50px;
+    }
+
+    .task3-1,
+    .triangle {
+      text-align: center;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Задача 3.1</h1>
+
+  <div>
+    <p>
+      Відобразити трикутник за допомогою символів «о»
+    </p>
+    <div class="task3-1">
+      <p>оооооооооооо</p>
+      <p>ооооооооооо</p>
+      <p>оооооооооо</p>
+      <p>ооооооооо</p>
+      <p>оооооооо</p>
+      <p>…</p>
+      <p>оо</p>
+      <p>о</p>
+    </div>
+
+  </div>
+
+  <script>
+
+    let characters = parseInt(prompt('Введіть к-сть символів:'))
+
+    document.write('<div class = "triangle">')
+    for (let rowNum = 0; rowNum < characters; rowNum++) {
+      for (let colNum = 0; colNum < characters - rowNum; colNum++) {
+        document.write('o')
+      }
+      document.write('<br>')
+    }
+    document.write('</div>')
+  </script>
+
+</body>
+
+</html>
