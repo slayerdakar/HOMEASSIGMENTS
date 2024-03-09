@@ -5,6 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task 0</title>
+  <style>
+    .task0 p {
+      margin: 0;
+    }
+
+    .task0 {
+      display: inline-block;
+      margin-bottom: 50px;
+    }
+  </style>
 </head>
 
 <body>
@@ -14,19 +24,31 @@
   <div>
     <p>
       Вивести на екран
-      A B C D E
-      B C D E F
-      C D E F G
-      D E F G H
-      E F G H I
-
     </p>
+    <div class="task0">
+      <p>A B C D E</p>
+      <p>B C D E F</p>
+      <p>C D E F G</p>
+      <p>D E F G H</p>
+      <p>E F G H I</p>
+
+    </div>
 
   </div>
 
   <script>
 
-
+    let starLetterNumber = 65
+    let finishLetterNumber = 90
+    let row = 5
+    let col = 5
+    for (let i = 0; i < row; i++) {
+      for (let i = 0; i < col; i++) {
+        document.write(String.fromCharCode(starLetterNumber + i) + ' ')
+      }
+      starLetterNumber++
+      document.write('<br>')
+    }
 
   </script>
 
