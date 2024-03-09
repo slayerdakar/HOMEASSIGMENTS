@@ -29,7 +29,7 @@
 
     while (remainsPaid < paymentAmount) {
       const enterUserMoney = parseFloat(prompt('Введіть суму яку можете сплатити :'))
-      remainsPaid += paymentAmount - (paymentAmount - enterUserMoney)
+      remainsPaid += enterUserMoney
       if (remainsPaid < paymentAmount)
         alert(`Залишилось оплатити ${paymentAmount - remainsPaid}$`)
     }

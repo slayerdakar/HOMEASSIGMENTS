@@ -27,10 +27,10 @@
     if (lastNum < firstNum) {
       let intermediate = firstNum
       firstNum = lastNum + 1
-      lastNum = intermediate - 1
+      lastNum = intermediate
     }
 
-    firstNum % 2 !== 0 ? true : firstNum += 1
+    if (firstNum % 2 === 0) firstNum++
     for (let unpairedNum = firstNum; unpairedNum < lastNum; unpairedNum += 2) {
       sumUnpaired += unpairedNum
     }
