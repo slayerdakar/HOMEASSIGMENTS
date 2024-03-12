@@ -19,25 +19,39 @@
   </div>
 
   <script>
-
-    function getCheckForPairedPositiveMore100(num) {
-      if (num % 2 === 0) doubleNumber++
-      if (num >= 0) positiveNumberCount++
-      if (num > 100) quantityMore100++
+    function getQuantityEvenNumber(firstNum, secondNum, thirdNum) {
+      let count = 0
+      for (let i = 0; i < arguments.length; i++) {
+        if (arguments[i] % 2 === 0) count++
+      }
+      return count
     }
+    function getQuantityPositiveNumber(firstNum, secondNum, thirdNum) {
+      let count = 0
+      for (let i = 0; i < arguments.length; i++) {
+        if (arguments[i] >= 0) count++
+      }
+      return count
+
+    }
+    function getQuantiMore100Number(firstNum, secondNum, thirdNum) {
+      let count = 0
+      for (let i = 0; i < arguments.length; i++) {
+        if (arguments[i] > 100) count++
+      }
+      return count
+    }
+
     const firstNum = parseInt(prompt('Введіть перше число'))
     const secondNum = parseInt(prompt('Введіть перше число'))
     const thirdNum = parseInt(prompt('Введіть перше число'))
 
-    let doubleNumber = 0
-    let positiveNumberCount = 0
-    let quantityMore100 = 0
+    let evenNumber = getQuantityEvenNumber(firstNum, secondNum, thirdNum)
+    let positiveNumberCount = getQuantityPositiveNumber(firstNum, secondNum, thirdNum)
+    let quantityMore100 = getQuantiMore100Number(firstNum, secondNum, thirdNum)
 
-    getCheckForPairedPositiveMore100(firstNum)
-    getCheckForPairedPositiveMore100(secondNum)
-    getCheckForPairedPositiveMore100(thirdNum)
 
-    document.write(`Кількість парних: ${doubleNumber}<br>
+    document.write(`Кількість парних: ${evenNumber}<br>
     Кількість додатних: ${positiveNumberCount}<br>
     Кількість більших за 100: ${quantityMore100}`)
 
