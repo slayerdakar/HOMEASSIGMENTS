@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 5</title>
+</head>
+
+<body>
+
+  <h1>Задача 5</h1>
+
+  <div>
+    <p> Створити окремі функції, які переводять:<br>
+      Сантиметри у дюйми;<br>
+      Кілограми у фунти;<br>
+      Кілометри у милі.
+    </p>
+  </div>
+
+  <script>
+
+    function getCentimetersToInches(num) {
+      return num / 2.54
+    }
+    function getKilogramsToPounds(num) {
+      return num * 2.205
+    }
+    function getKilometersToMiles(num) {
+      return num / 1.609
+    }
+    const enterCentimeters = parseInt(prompt('Введіть число, сантиметрів:', 1))
+    const enterKilograms = parseInt(prompt('Введіть число, кілограм:', 1))
+    const enterKilometers = parseInt(prompt('Введіть число, кілометри:', 1))
+
+    let centimetersToInches = getCentimetersToInches(enterCentimeters)
+    let kilogramsToPounds = getKilogramsToPounds(enterKilograms)
+    let kilometersToMiles = getKilometersToMiles(enterKilometers)
+
+    document.write(`${enterCentimeters} см у дюймах: <strong>${centimetersToInches.toFixed(2)}</strong><br>
+    ${enterKilograms} кг у фунтах: <strong>${kilogramsToPounds.toFixed(2)}</strong><br>
+    ${enterKilometers} км у милях: <strong>${kilometersToMiles.toFixed(2)}</strong><br>`)
+
+  </script>
+
+</body>
+
+</html>

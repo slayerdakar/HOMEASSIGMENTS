@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1</title>
+</head>
+
+<body>
+
+  <h1>Задача 1</h1>
+
+  <div>
+    <p>
+      Створити функцію, яка за номером місяця повертає його назву.
+    </p>
+  </div>
+
+  <script>
+    function getMonthName(num) {
+      let monthName
+      if (num === 1) monthName = 'Січень'
+      else if (num === 2) monthName = 'Лютий'
+      else if (num === 3) monthName = 'Березень'
+      else if (num === 4) monthName = 'Квітень'
+      else if (num === 5) monthName = 'Травень'
+      else if (num === 6) monthName = 'Червень'
+      else if (num === 7) monthName = 'Липень'
+      else if (num === 8) monthName = 'Серпень'
+      else if (num === 9) monthName = 'Вересень'
+      else if (num === 10) monthName = 'Жовтень'
+      else if (num === 11) monthName = 'Листопад'
+      else monthName = 'Грудень'
+      return monthName
+    }
+
+    let numberMonth = parseInt(prompt('Введіть номер місяця:'))
+    if (numberMonth > 0 && numberMonth < 13) {
+      const monthNameOfYear = getMonthName(numberMonth)
+      document.write(`Пора року: ${monthNameOfYear}`)
+    }
+    else alert('Не коректно введений номер місяця.')
+  </script>
+
+</body>
+
+</html>

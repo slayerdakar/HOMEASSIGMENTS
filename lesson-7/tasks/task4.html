@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 4</title>
+</head>
+
+<body>
+
+  <h1>Задача 4</h1>
+
+  <div>
+    <p>
+      Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: кількість парних, кількість
+      додатних, кількість більших за 100.
+    </p>
+  </div>
+
+  <script>
+
+    function getCheckForPairedPositiveMore100(num) {
+      if (num % 2 === 0) doubleNumber++
+      if (num >= 0) positiveNumberCount++
+      if (num > 100) quantityMore100++
+    }
+    const firstNum = parseInt(prompt('Введіть перше число'))
+    const secondNum = parseInt(prompt('Введіть перше число'))
+    const thirdNum = parseInt(prompt('Введіть перше число'))
+
+    let doubleNumber = 0
+    let positiveNumberCount = 0
+    let quantityMore100 = 0
+
+    getCheckForPairedPositiveMore100(firstNum)
+    getCheckForPairedPositiveMore100(secondNum)
+    getCheckForPairedPositiveMore100(thirdNum)
+
+    document.write(`Кількість парних: ${doubleNumber}<br>
+    Кількість додатних: ${positiveNumberCount}<br>
+    Кількість більших за 100: ${quantityMore100}`)
+
+  </script>
+
+</body>
+
+</html>

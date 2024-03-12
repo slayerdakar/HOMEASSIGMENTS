@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 7</title>
+
+</head>
+
+<body>
+
+  <h1>Задача 7</h1>
+
+  <div>
+    <p>
+      Створити функцію, яка випадковим чином виводить на екран одне із 4 зображень (шляхи до зображень передаються у
+      функцію)
+    </p>
+  </div>
+
+  <script>
+
+    function showImage(img1, img2, img3, img4) {
+      const randNumImg = 1 + Math.floor(Math.random() * 4)
+      let result
+      if (randNumImg === 1) result = img1
+      else if (randNumImg === 2) result = img2
+      else if (randNumImg === 3) result = img3
+      else result = img4
+      return result
+    }
+    const img1 = "./img-task7/img1.png"
+    const img2 = "./img-task7/img2.png"
+    const img3 = "./img-task7/img3.png"
+    const img4 = "./img-task7/img4.png"
+
+    let randImg = showImage(img1, img2, img3, img4)
+
+    document.write(`<img src="${randImg}" alt="image">`)
+
+  </script>
+
+</body>
+
+</html>

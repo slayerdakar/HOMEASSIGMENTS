@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 8</title>
+  <style>
+    .block {
+      display: inline-block;
+      text-align: center;
+    }
+
+    img {
+      transition: all 0.3s;
+
+    }
+
+    img:hover {
+      transform: scale(1.01);
+    }
+
+    a {
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Задача 8</h1>
+
+  <div>
+    <p>
+      Створити функцію, яка виводить банер (у функцію передаються: зображення, заголовок та посилання, куди переходимо
+      при кліку на зображення (тег img повине знаходитись у середині тега a: <a> <img src=”шлях”> </a>
+    </p>
+  </div>
+  <script>
+
+
+    function displayBanner(image, title, link) {
+      document.write('<div class="block">')
+      document.write(`<h2>${title}</h2>`)
+      document.write(`
+      <a target="_blank" href="${link}">
+        <img src="${image}" alt="image">
+      </a>`)
+      document.write('</div>')
+    }
+
+    const image = "./img-task8/img.jpg"
+    const title = "Містеріум: Початок / Жінка в клітці"
+    const link = "https://uakino.club/filmy/genre_detective/4432-msterum-pochatok-zhnka-v-kltc.html"
+
+    displayBanner(image, title, link)
+
+  </script>
+
+</body>
+
+</html>

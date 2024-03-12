@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2</title>
+</head>
+
+<body>
+
+  <h1>Задача 2</h1>
+
+  <div>
+    <p>
+      Створити окремі функції, які для 4 чисел знаходять:<br>
+      1)суму;<br>
+      2)добуток;<br>
+      3)середнє арифметичне;<br>
+      4)мінімальне значення.
+
+    </p>
+  </div>
+
+  <script>
+
+    function getSum(a, b, c, d) {
+      return a + b + c + d
+    }
+
+    function getMult(a, b, c, d) {
+      return a * b * c * d
+    }
+    function getAverage(a, b, c, d) {
+      return (a + b + c + d) / 4
+    }
+    function getMinNum(a, b, c, d) {
+      let min = a
+      if (b < min) min = b
+      if (c < min) min = c
+      if (d < min) min = d
+      return min
+    }
+
+    let a = parseInt(prompt('Введіть перше число'))
+    let b = parseInt(prompt('Введіть друге число'))
+    let c = parseInt(prompt('Введіть третє число'))
+    let d = parseInt(prompt('Введіть четверте число'))
+    let sum = getSum(a, b, c, d)
+    let mult = getMult(a, b, c, d)
+    let average = getAverage(a, b, c, d)
+    let minNum = getMinNum(a, b, c, d)
+    document.write(
+      `Сума: ${sum}<br>
+      Добуток: ${mult}<br>
+      Середнє арифметичне: ${average}<br>
+      Мінімальне значення: ${minNum}<br>`
+    )
+
+  </script>
+
+</body>
+
+</html>
