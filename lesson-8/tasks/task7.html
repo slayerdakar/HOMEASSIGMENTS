@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 7</title>
+</head>
+
+<body>
+
+  <h1>Задача 7</h1>
+
+  <div style="margin-bottom: 50px;">
+    <p>
+      Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
+    </p>
+    <ol>
+      <li>за весь рік;</li>
+      <li>у першій половині року;</li>
+      <li>у другій половині року;</li>
+      <li>за літо;</li>
+      <li>за ІІ квартал;</li>
+      <li>за парні місяці (з парними номерами);</li>
+      <li>за місяці, які є початковими у сезоні (весна, літо, осінь, зима).</li>
+    </ol>
+  </div>
+
+  <script>
+
+    function getSumMoneyYear(arr) {
+      let sum = 0
+      for (let invoice = 0; invoice < arr.length; invoice++) {
+        sum += arr[invoice]
+      }
+      return sum
+    }
+    function getSumMoneyFirstHalfYear(arr) {
+      let firstHalfYear = arr.length / 2
+      let sum = 0
+      for (let invoice = 0; invoice < firstHalfYear; invoice++) {
+        sum += arr[invoice]
+      }
+      return sum
+    }
+    function getSumMoneySecondHalfYear(arr) {
+      let halfYear = arr.length / 2
+      let sum = 0
+      for (let invoice = halfYear; invoice < arr.length; invoice++) {
+        sum += arr[invoice]
+      }
+      return sum
+    }
+    function getSumMoneySummer(arr) {
+      let startSummerMonth = 6 - 1
+      let endSummerMonth = 8
+      let sum = 0
+      for (let invoice = startSummerMonth; invoice < endSummerMonth; invoice++) {
+        sum += arr[invoice]
+      }
+      return sum
+    }
+    function getSumMoneyEvenMonths(arr) {
+      let sum = 0
+      for (let invoice = 1; invoice < arr.length; invoice += 2) {
+        sum += arr[invoice]
+      }
+      return sum
+    }
+    function getSumMoneyBeginningMonthsSeason(arr) {
+      let sum = 0
+      for (let invoice = 2; invoice < arr.length; invoice += 3) {
+        sum += arr[invoice]
+      }
+      return sum
+    }
+
+    const paymentsDuringYear = [1000, 200, 545, 567, 1200, 300, 600, 456, 2345, 10888, 453, 2222]
+
+
+    document.write(`
+    Платіжки протягом року: ${paymentsDuringYear}<br>
+    Сумарна кількість грошей за весь рік: ${getSumMoneyYear(paymentsDuringYear)}<br>
+    Сумарна кількість грошей у першій половині року: ${getSumMoneyFirstHalfYear(paymentsDuringYear)}<br>
+    Сумарна кількість грошей у другій половині року: ${getSumMoneySecondHalfYear(paymentsDuringYear)}<br>
+    Сумарна кількість грошей за літо: ${getSumMoneySummer(paymentsDuringYear)}<br>
+    Сумарна кількість грошей за парні місяці (з парними номерами): ${getSumMoneyEvenMonths(paymentsDuringYear)}<br>
+    Сумарна кількість грошей за місяці, які є початковими у сезоні (весна, літо, осінь, зима): ${getSumMoneyBeginningMonthsSeason(paymentsDuringYear)}<br>
+    `)
+
+  </script>
+
+</body>
+
+</html>

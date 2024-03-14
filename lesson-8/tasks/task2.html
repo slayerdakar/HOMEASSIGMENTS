@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2</title>
+</head>
+
+<body>
+
+  <h1>Задача 2</h1>
+
+  <div style="margin-bottom: 50px;">
+    <p>
+      Дано масив, який зберігає кількість відвідувачів магазину протягом тижня. Вивести на екран:
+    </p>
+    <ul>
+      <li>номери днів, протягом яких кількість відвідувачів була меншою за 20;</li>
+      <li>номери днів, коли кількість відвідувачів була мінімальною;</li>
+      <li>номери днів, коли кількість відвідувачів була максимальною;</li>
+      <li>загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних.</li>
+    </ul>
+  </div>
+
+  <script>
+
+    function getNumberDayVisitorsLess20(arr) {
+      const arrNumberDay = []
+      for (let day = 1; day <= arr.length; day++) {
+        if (arr[day - 1] < 20) arrNumberDay.push(day)
+      }
+      return arrNumberDay
+    }
+    function getNumberDayVisitorsMin(arr) {
+      let arrNumberMin = Math.min(...arr)
+      const arrNumberDay = []
+      for (let day = 1; day <= arr.length; day++) {
+        if (arr[day - 1] === arrNumberMin) arrNumberDay.push(day)
+      }
+      return arrNumberDay
+    }
+    function getNumberDayVisitorsMax(arr) {
+      let arrNumberMax = Math.max(...arr)
+      const arrNumberDay = []
+      for (let day = 1; day <= arr.length; day++) {
+        if (arr[day - 1] === arrNumberMax) arrNumberDay.push(day)
+      }
+      return arrNumberDay
+    }
+    function getVisitorsWorkingDays(arr) {
+      let totalNumberClients = 0
+      for (let day = 0; day < 5; day++) {
+        totalNumberClients += arr[day]
+      }
+      return totalNumberClients
+    }
+    function getVisitorsWeekend(arr) {
+      let totalNumberClients = 0
+      for (let day = 5; day < 7; day++) {
+        totalNumberClients += arr[day]
+      }
+      return totalNumberClients
+    }
+
+    const arrNumberOfVisitors = [5, 21, 5, 15, 7, 33, 9]
+
+    document.write(`
+    Кількість відвідувачів магазину протягом тижня : <strong>${arrNumberOfVisitors}</strong><br>
+    Номери днів, протягом яких кількість відвідувачів була меншою за 20 : ${getNumberDayVisitorsLess20(arrNumberOfVisitors)}<br>
+    Номери днів, коли кількість відвідувачів була мінімальною: ${getNumberDayVisitorsMin(arrNumberOfVisitors)}<br>
+    Номери днів, коли кількість відвідувачів була максимальною: ${getNumberDayVisitorsMax(arrNumberOfVisitors)}<br>
+    Загальна кількість клієнтів у робочі дні : ${getVisitorsWorkingDays(arrNumberOfVisitors)}<br>
+    Загальна кількість клієнтів на вихідних : ${getVisitorsWeekend(arrNumberOfVisitors)}
+    `)
+
+  </script>
+
+</body>
+
+</html>

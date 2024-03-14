@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1</title>
+</head>
+
+<body>
+
+  <h1>Задача 1</h1>
+
+  <div>
+    <p>
+      Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії він відноситься
+      (відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є хоча би одна
+      трійка)).
+    </p>
+  </div>
+
+  <script>
+
+    function getAverageScore(arr) {
+      let sumGrades = 0
+      for (let grade = 0; grade < arr.length; grade++) {
+        sumGrades += arr[grade];
+      }
+      return Math.floor(sumGrades / arr.length)
+    }
+    function getCategoryStudent(arr) {
+      let categoryStudent = 'Хорошист'
+      let countFivesGrade = 0
+      for (let grade = 0; grade < arr.length; grade++) {
+        if (arr[grade] === 2) {
+          categoryStudent = 'Двійочник'
+          break
+        }
+        if (arr[grade] === 3) {
+          if (categoryStudent !== 'Трійочник')
+            categoryStudent = 'Трійочник'
+        }
+        else if (arr[grade] === 5) {
+          countFivesGrade++
+        }
+      }
+      if (countFivesGrade === arr.length) categoryStudent = 'Відмінник'
+      return categoryStudent
+    }
+
+    const arrGrades = [5, 5, 5, 3, 5, 5, 2]
+    const averageStudentGrade = getAverageScore(arrGrades)
+    const studentCategory = getCategoryStudent(arrGrades)
+
+
+    document.write(`Оцінки з предметів : ${arrGrades}<br>
+    Середній бал учня: ${averageStudentGrade}<br>
+    Учень відноситься до категорії - ${studentCategory}`)
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+</head>
+
+<body>
+
+  <h1>Задача 0</h1>
+
+  <div>
+    <p>
+      Задача. Дано розміри доходу магазину за кожен місяць протягом року. Знайти:
+      // 1) загальний дохід за рік (1-12)
+      // 2) загальний дохід за 1-ше півріччя (1-6)
+      // 3) загальний дохід за 2-ге півріччя (7-12)
+      // 4) загальний дохід за 2-гий квартал (4-6)
+      // 5) загальний дохід за 2-гий і 3-тій квартал (4-9)
+    </p>
+  </div>
+
+  <script>
+
+    function inputArray(itemsNumber) {
+      let arr = []
+      for (let i = 1; i <= itemsNumber; i++) {
+        const monthIncome = parseFloat(prompt(`Введіть дохід за ${i} місяць:`))
+        arr.push(monthIncome)
+      }
+      return arr
+    }
+    function getIncomeSum(incomesList, startMonthNumber, endMonthNumber) {
+      let sum = 0
+      for (let month = startMonthNumber; month <= endMonthNumber; month++) {
+        sum += incomesList[month - 1]
+      }
+      return sum
+    }
+   
+
+    const incomesList = inputArray(12)
+    console.log(incomesList);
+    // const sumYear = getIncomSum(incomesList, 1, 12)
+    console.log(getIncomeSum(incomesList, 1, 12));
+    // document.write(sumYear)
+
+
+
+
+    
+
+
+
+
+
+
+
+
+    //Знаходимо результат
+    // 1) загальний дохід за рік (1-12)
+    // const sumYear = getIncomeSum(incomesList, 1, 12)
+  </script>
+
+</body>
+
+</html>

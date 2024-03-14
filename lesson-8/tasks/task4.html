@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 4</title>
+</head>
+
+<body>
+
+  <h1>Задача 4</h1>
+
+  <div style="margin-bottom: 50px;">
+    <p>
+      Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
+    </p>
+    <ul>
+      <li>починаються на букву «А»</li>
+      <li>перша і остання літери співпадають;</li>
+      <li>складаються з більше ніш 5 символів;</li>
+    </ul>
+  </div>
+
+  <script>
+
+    function getCarNumbersStartWithA(arr) {
+      let count = 0
+      for (let carNumber = 0; carNumber < arr.length; carNumber++) {
+        if (arr[carNumber][0].toUpperCase() === 'A') count++
+      }
+      return count
+    }
+    function getCarNumbersFirstAndLastLettersSame(arr) {
+      let count = 0
+      for (let carNumber = 0; carNumber < arr.length; carNumber++) {
+        if (arr[carNumber][0].toUpperCase() === arr[carNumber][arr[carNumber].length - 1].toUpperCase()) count++
+      }
+      return count
+    }
+    function getCarNumbersMore5Symbol(arr) {
+      let count = 0
+      for (let carNumber = 0; carNumber < arr.length; carNumber++) {
+        if (arr[carNumber].length > 5) count++
+      }
+      return count
+    }
+
+    const arrCarNumbers = ['BX5544HP', 'AA1111AA', 'D456F', 'G777G', 'VR7821HJ']
+
+
+    document.write(`
+    Номери автомобілів : ${arrCarNumbers}<br>
+    Кількість номерів, які починаються на букву «А» : ${getCarNumbersStartWithA(arrCarNumbers)}<br>
+    Кількість номерів, у яких перша і остання літери співпадають :${getCarNumbersFirstAndLastLettersSame(arrCarNumbers)}<br>
+    Кількість номерів, які складаються з більше ніш 5 символів :${getCarNumbersMore5Symbol(arrCarNumbers)}
+    `)
+  </script>
+
+</body>
+
+</html>
