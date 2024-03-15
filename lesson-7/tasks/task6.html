@@ -19,13 +19,12 @@
   </div>
 
   <script>
-    function createTable(row, col) {
-      let text = 'Hello'
+    function createTable(rowsTable, colsTable, textTable) {
       document.write('<table border="2px"')
-      for (let i = 0; i < row; i++) {
+      for (let i = 0; i < rowsTable; i++) {
         document.write('<tr>')
-        for (let j = 0; j < col; j++) {
-          document.write(`<td><p>${text}</p></td>`)
+        for (let j = 0; j < colsTable; j++) {
+          document.write(`<td><p>${textTable}</p></td>`)
         }
         document.write('</tr>')
       }
@@ -33,8 +32,9 @@
     }
     const inputRowsTable = parseInt(prompt('Введіть к-сть рядків:', 1))
     const inputColsTable = parseInt(prompt('Введіть к-сть стовпців:', 1))
+    const inputTextTable = prompt('Введіть текст:')
 
-    createTable(inputRowsTable, inputColsTable)
+    createTable(inputRowsTable, inputColsTable, inputTextTable)
   </script>
 
 </body>
