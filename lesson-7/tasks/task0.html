@@ -21,10 +21,10 @@
 
     function getTimeOfYear(numberMonth) {
       let timeOfYear
-      if (numberMonth > 2 && numberMonth < 6) timeOfYear = 'Весна'
-      else if (numberMonth > 5 && numberMonth < 9) timeOfYear = 'Літо'
-      else if (numberMonth > 8 && numberMonth < 12) timeOfYear = 'Осінь'
-      else timeOfYear = 'Зима'
+      if (numberMonth === 12 || numberMonth < 3) timeOfYear = 'Зима'
+      else if (numberMonth < 6) timeOfYear = 'Весна'
+      else if (numberMonth < 9) timeOfYear = 'Літо'
+      else if (numberMonth < 12) timeOfYear = 'Осінь'
       return timeOfYear
     }
     let numberMonth = parseInt(prompt('Введіть номер місяця:'))

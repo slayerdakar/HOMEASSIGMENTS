@@ -20,7 +20,7 @@
   <script>
 
     function getWorkingDayOrWeekend(num) {
-      return num > 0 && num < 6 ? 'Робочій' : 'Вихідний'
+      return num < 6 ? 'Робочій' : 'Вихідний'
     }
     let numberDay = parseInt(prompt('Введіть номер дня тижня:'))
     if (numberDay > 0 && numberDay < 8) {

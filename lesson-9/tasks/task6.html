@@ -20,7 +20,7 @@
   <script>
 
     const arrElements = [120, 50, -1, -463, 777, 1, -3, 45, 888]
-    arrElements.forEach((elem, index) => {
+    arrElements.forEach((elem, index, arrElements) => {
       if (elem > arrElements[0]) arrElements[index] *= 2
     })
     document.write(`${arrElements}`)

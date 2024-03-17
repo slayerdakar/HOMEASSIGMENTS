@@ -20,13 +20,10 @@
   <script>
 
     const listNames = ['Alex', 'Anatolii', 'Tatiana', 'Olga', 'Ivan', 'Oksana']
-    const listFirstLettersNames = []
-
-    for (const name of listNames) {
-      listFirstLettersNames.push(name[0])
-    }
-
+    const listFirstLettersNames = listNames.map(elem => elem[0])
     document.write(listFirstLettersNames)
+
+
 
   </script>
 

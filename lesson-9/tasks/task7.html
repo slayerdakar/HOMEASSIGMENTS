@@ -22,7 +22,7 @@
 
     const arrPrices = [120, 1150, 1158, 463, 1777, 15, 3, 45, 888]
 
-    arrPrices.forEach((element, index) => {
+    arrPrices.forEach((element, index, arrPrices) => {
       if (element > 1000) arrPrices[index] = Math.round(element - (element * 0.3))
     });
     document.write(arrPrices)
