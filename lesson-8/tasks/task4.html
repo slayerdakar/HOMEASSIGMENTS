@@ -24,21 +24,21 @@
 
   <script>
 
-    function getCarNumbersStartWithA(arr) {
+    function getCarsNumbersStartWithA(arr) {
       let count = 0
       for (let carNumber = 0; carNumber < arr.length; carNumber++) {
         if (arr[carNumber][0].toUpperCase() === 'A') count++
       }
       return count
     }
-    function getCarNumbersFirstAndLastLettersSame(arr) {
+    function getCarsNumbersFirstAndLastLettersSame(arr) {
       let count = 0
       for (let carNumber = 0; carNumber < arr.length; carNumber++) {
         if (arr[carNumber][0].toUpperCase() === arr[carNumber][arr[carNumber].length - 1].toUpperCase()) count++
       }
       return count
     }
-    function getCarNumbersMore5Symbol(arr) {
+    function getCarsNumbersMore5Symbol(arr) {
       let count = 0
       for (let carNumber = 0; carNumber < arr.length; carNumber++) {
         if (arr[carNumber].length > 5) count++
@@ -51,9 +51,9 @@
 
     document.write(`
     Номери автомобілів : ${arrCarNumbers}<br>
-    Кількість номерів, які починаються на букву «А» : ${getCarNumbersStartWithA(arrCarNumbers)}<br>
-    Кількість номерів, у яких перша і остання літери співпадають :${getCarNumbersFirstAndLastLettersSame(arrCarNumbers)}<br>
-    Кількість номерів, які складаються з більше ніш 5 символів :${getCarNumbersMore5Symbol(arrCarNumbers)}
+    Кількість номерів, які починаються на букву «А» : ${getCarsNumbersStartWithA(arrCarNumbers)}<br>
+    Кількість номерів, у яких перша і остання літери співпадають :${getCarsNumbersFirstAndLastLettersSame(arrCarNumbers)}<br>
+    Кількість номерів, які складаються з більше ніш 5 символів :${getCarsNumbersMore5Symbol(arrCarNumbers)}
     `)
   </script>
 

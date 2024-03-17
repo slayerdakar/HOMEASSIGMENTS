@@ -28,65 +28,132 @@
 
   <script>
 
-    function getSumMoneyYear(arr) {
+    function getSumMoney(userRequest, arr) {
       let sum = 0
-      for (let invoice = 0; invoice < arr.length; invoice++) {
-        sum += arr[invoice]
+      if (userRequest === 1) {
+        let sum = 0
+        for (let invoice = 0; invoice < arr.length; invoice++) {
+          sum += arr[invoice]
+        }
+        document.write(`Сумарна кількість грошей за весь рік: ${sum}`)
       }
-      return sum
-    }
-    function getSumMoneyFirstHalfYear(arr) {
-      let firstHalfYear = arr.length / 2
-      let sum = 0
-      for (let invoice = 0; invoice < firstHalfYear; invoice++) {
-        sum += arr[invoice]
+      else if (userRequest === 2) {
+        let firstHalfYear = arr.length / 2
+        for (let invoice = 0; invoice < arr.length; invoice++) {
+          sum += arr[invoice]
+        }
+        document.write(`Сумарна кількість грошей у першій половині року: ${sum}`)
       }
-      return sum
-    }
-    function getSumMoneySecondHalfYear(arr) {
-      let halfYear = arr.length / 2
-      let sum = 0
-      for (let invoice = halfYear; invoice < arr.length; invoice++) {
-        sum += arr[invoice]
+      else if (userRequest === 3) {
+        let halfYear = arr.length / 2
+        for (let invoice = halfYear; invoice < arr.length; invoice++) {
+          sum += arr[invoice]
+        }
+        document.write(`Сумарна кількість грошей у другій половині року: ${sum}`)
       }
-      return sum
-    }
-    function getSumMoneySummer(arr) {
-      let startSummerMonth = 6 - 1
-      let endSummerMonth = 8
-      let sum = 0
-      for (let invoice = startSummerMonth; invoice < endSummerMonth; invoice++) {
-        sum += arr[invoice]
+      else if (userRequest === 4) {
+        let startSummerMonth = 6 - 1
+        let endSummerMonth = 8
+        for (let invoice = startSummerMonth; invoice < endSummerMonth; invoice++) {
+          sum += arr[invoice]
+        }
+        document.write(`Сумарна кількість грошей за літо: ${sum}`)
       }
-      return sum
-    }
-    function getSumMoneyEvenMonths(arr) {
-      let sum = 0
-      for (let invoice = 1; invoice < arr.length; invoice += 2) {
-        sum += arr[invoice]
+      else if (userRequest === 5) {
+        for (let invoice = 3; invoice < 5; invoice++) {
+          sum += arr[invoice]
+        }
+        document.write(`Сумарна кількість грошей за другій квартал: ${sum}`)
       }
-      return sum
-    }
-    function getSumMoneyBeginningMonthsSeason(arr) {
-      let sum = 0
-      for (let invoice = 2; invoice < arr.length; invoice += 3) {
-        sum += arr[invoice]
+      else if (userRequest === 6) {
+        for (let invoice = 1; invoice < arr.length; invoice += 2) {
+          sum += arr[invoice]
+        }
+        document.write(`Сумарна кількість грошей за парні місяці (з парними номерами): ${sum}`)
       }
-      return sum
+      else if (userRequest === 7) {
+        for (let invoice = 2; invoice < arr.length; invoice += 3) {
+          sum += arr[invoice]
+        }
+        document.write(`Сумарна кількість грошей за місяці, які є початковими у сезоні (весна, літо, осінь, зима): ${sum}`)
+      }
     }
 
     const paymentsDuringYear = [1000, 200, 545, 567, 1200, 300, 600, 456, 2345, 10888, 453, 2222]
 
+    const userRequest = parseInt(prompt('Оберіть за який період часу необхідно порахувати кількість грошей, введіть номер пункту:\n1.За весь рік;\n2.У першій половині року;\n3.У другій половині року;\n4.За літо;\n5.За ІІ квартал;\n6.За парні місяці (з парними номерами);\n7.За місяці, які є початковими у сезоні (весна, літо, осінь, зима);'))
 
-    document.write(`
-    Платіжки протягом року: ${paymentsDuringYear}<br>
-    Сумарна кількість грошей за весь рік: ${getSumMoneyYear(paymentsDuringYear)}<br>
-    Сумарна кількість грошей у першій половині року: ${getSumMoneyFirstHalfYear(paymentsDuringYear)}<br>
-    Сумарна кількість грошей у другій половині року: ${getSumMoneySecondHalfYear(paymentsDuringYear)}<br>
-    Сумарна кількість грошей за літо: ${getSumMoneySummer(paymentsDuringYear)}<br>
-    Сумарна кількість грошей за парні місяці (з парними номерами): ${getSumMoneyEvenMonths(paymentsDuringYear)}<br>
-    Сумарна кількість грошей за місяці, які є початковими у сезоні (весна, літо, осінь, зима): ${getSumMoneyBeginningMonthsSeason(paymentsDuringYear)}<br>
-    `)
+    if (userRequest >= 1 && userRequest <= 12) getSumMoney(userRequest, paymentsDuringYear)
+    else alert('Введіть коректні значення (1-12)')
+    
+
+    // function getSumMoneyYear(arr) {
+    //   let sum = 0
+    //   for (let invoice = 0; invoice < arr.length; invoice++) {
+    //     sum += arr[invoice]
+    //   }
+    //   return sum
+    // }
+    // function getSumMoneyFirstHalfYear(arr) {
+    //   let firstHalfYear = arr.length / 2
+    //   let sum = 0
+    //   for (let invoice = 0; invoice < firstHalfYear; invoice++) {
+    //     sum += arr[invoice]
+    //   }
+    //   return sum
+    // }
+    // function getSumMoneySecondHalfYear(arr) {
+    //   let halfYear = arr.length / 2
+    //   let sum = 0
+    //   for (let invoice = halfYear; invoice < arr.length; invoice++) {
+    //     sum += arr[invoice]
+    //   }
+    //   return sum
+    // }
+    // function getSumMoneySummer(arr) {
+    //   let startSummerMonth = 6 - 1
+    //   let endSummerMonth = 8
+    //   let sum = 0
+    //   for (let invoice = startSummerMonth; invoice < endSummerMonth; invoice++) {
+    //     sum += arr[invoice]
+    //   }
+    //   return sum
+    // }
+    // function getSumMoneySecondQuarter(arr) {
+    //   let sum = 0
+    //   for (let invoice = 3; invoice < 5; invoice++) {
+    //     sum += arr[invoice]
+    //   }
+    //   return sum
+    // }
+    // function getSumMoneyEvenMonths(arr) {
+    //   let sum = 0
+    //   for (let invoice = 1; invoice < arr.length; invoice += 2) {
+    //     sum += arr[invoice]
+    //   }
+    //   return sum
+    // }
+    // function getSumMoneyBeginningMonthsSeason(arr) {
+    //   let sum = 0
+    //   for (let invoice = 2; invoice < arr.length; invoice += 3) {
+    //     sum += arr[invoice]
+    //   }
+    //   return sum
+    // }
+
+    
+
+
+    // document.write(`
+    // Платіжки протягом року: ${paymentsDuringYear}<br>
+    // Сумарна кількість грошей за весь рік: ${getSumMoneyYear(paymentsDuringYear)}<br>
+    // Сумарна кількість грошей у першій половині року: ${getSumMoneyFirstHalfYear(paymentsDuringYear)}<br>
+    // Сумарна кількість грошей у другій половині року: ${getSumMoneySecondHalfYear(paymentsDuringYear)}<br>
+    // Сумарна кількість грошей за літо: ${getSumMoneySummer(paymentsDuringYear)}<br>
+    // Сумарна кількість грошей за другій квартал: ${getSumMoneySecondQuarter(paymentsDuringYear)}<br>
+    // Сумарна кількість грошей за парні місяці (з парними номерами): ${getSumMoneyEvenMonths(paymentsDuringYear)}<br>
+    // Сумарна кількість грошей за місяці, які є початковими у сезоні (весна, літо, осінь, зима): ${getSumMoneyBeginningMonthsSeason(paymentsDuringYear)}<br>
+    // `)
 
   </script>
 

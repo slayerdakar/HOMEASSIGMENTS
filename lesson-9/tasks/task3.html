@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 3</title>
+</head>
+
+<body>
+
+  <h1>Задача 3</h1>
+
+  <div>
+    <p>
+      Користувач вводить кількість елементів. Створити масив, у якому перші 5 елементів заповнені 1-цями, а інші до
+      кінця масиву заповнені 7-ками.
+    </p>
+  </div>
+
+  <script>
+
+    function getFilledArray(numberOfArrayElements, numberArrayElementFirstFiveNumbers, numberArrayElementFilledOther) {
+      let createArr = new Array(numberOfArrayElements)
+      createArr.fill(numberArrayElementFirstFiveNumbers, 0, 5)
+      createArr.fill(numberArrayElementFilledOther, 5)
+      return createArr
+      // let arrayWithIdenticalValues = new Array(numberOfArrayElements).fill(numberArrayElementFilledOther)
+      // return arrayWithIdenticalValues.fill(numberArrayElementFirstFiveNumbers, 0, 5)
+    }
+
+    const numberOfArrayElements = parseInt(prompt('Введіть к-сть елементів масива:'))
+    const arrayElementFirstFiveNumbers = getFilledArray(numberOfArrayElements, 5, 7)
+    document.write(arrayElementFirstFiveNumbers)
+
+
+  </script>
+
+</body>
+
+</html>

@@ -28,27 +28,22 @@
       }
       return Math.floor(sumGrades / arr.length)
     }
-    function getCategoryStudent(arr) {
-      let categoryStudent = 'Хорошист'
-      let countFivesGrade = 0
-      for (let grade = 0; grade < arr.length; grade++) {
-        if (arr[grade] === 2) {
-          categoryStudent = 'Двійочник'
-          break
-        }
-        if (arr[grade] === 3) {
-          if (categoryStudent !== 'Трійочник')
-            categoryStudent = 'Трійочник'
-        }
-        else if (arr[grade] === 5) {
-          countFivesGrade++
-        }
-      }
-      if (countFivesGrade === arr.length) categoryStudent = 'Відмінник'
-      return categoryStudent
+
+    function getScoreMin(arr) {
+      return Math.min(...arr)
     }
 
-    const arrGrades = [5, 5, 5, 3, 5, 5, 2]
+    function getCategoryStudent(arr) {
+      let category
+      if (getScoreMin(arr) === 2) category = 'Двійочник'
+      else if (getScoreMin(arr) === 3) category = 'Трійочник'
+      else if (getScoreMin(arr) === 4) category = 'Хорошист'
+      else category = 'Відмінник'
+      return category
+
+    }
+
+    const arrGrades = [5, 5, 2, 5, 5, 5, 5]
     const averageStudentGrade = getAverageScore(arrGrades)
     const studentCategory = getCategoryStudent(arrGrades)
 

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 5</title>
+</head>
+
+<body>
+
+  <h1>Задача 5</h1>
+
+  <div>
+    <p>
+      Дано масив елементів. Знайти добуток додатних елементів
+    </p>
+  </div>
+
+  <script>
+
+    const arrElements = [120, 50, -1, -463, 777, 1, -3, 45, 888]
+    let multPosElemens = 1
+    for (const elem of arrElements) {
+      if (elem > 0) multPosElemens *= elem
+    }
+    document.write(multPosElemens)
+
+  </script>
+
+</body>
+
+</html>
