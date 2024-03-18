@@ -22,17 +22,47 @@
 
   <script>
 
-    function getShipPositions(numberOfShips) {
-      let shipPositions = []
-      let firstNumberRandom = Math.floor(Math.random() * numberOfShips)
-      shipPositions.push(firstNumberRandom)
-      for (let i = 0; i < numberOfShips - 1; i++) {
-        let rand = Math.floor(Math.random() * numberOfShips)
+    function playingFieldWithShips(fieldSize, numberOfShips) {
+      let playingFiel = []
+      let count = numberOfShips
+      for (let index = 0; index < fieldSize; index++) {
+        playingFiel.push(0);
       }
+      do {
+        let numberRandomPosShip = Math.floor(Math.random() * fieldSize)
+        if (playingFiel[numberRandomPosShip] !== 1) {
+          playingFiel[numberRandomPosShip] = 1
+          count -= 1
+        }
+      } while (count > 0);
+      return playingFiel
     }
 
-    // const numberOfFieldCells = parseInt(prompt('Введіть к-сть клітинок поля:'))
-    // const numberOfShips = parseInt(prompt('Введіть к-сть одиночних кораблів:'))
+    function playGame(fieldSize, numberOfShips) {
+      let playingField = playingFieldWithShips(fieldSize, numberOfShips)
+      let shipsLeftOnTheField = numberOfShips
+      do {
+        const shot = parseInt(prompt(`Зробіть постріл від 1 до ${numberOfFieldCells}`))
+        if (playingField[shot - 1] === 1) {
+          alert('Корабель знищений.')
+          playingField[shot - 1] = 0
+          shipsLeftOnTheField -= 1
+        }
+        else if (shot < 1 || shot > numberOfFieldCells) alert('Зробіть постріл в межах ігрового поля!')
+        else alert('Промах.')
+      } while (shipsLeftOnTheField > 0)
+      document.write('Гра завершена. Всі кораблі знищені.')
+    }
+
+
+    const numberOfFieldCells = parseInt(prompt('Введіть к-сть клітинок поля:'))
+    const numberOfShips = parseInt(prompt('Введіть к-сть одиночних кораблів:'))
+
+    if (numberOfFieldCells >= numberOfShips && numberOfFieldCells > 0 && numberOfShips > 0) playGame(numberOfFieldCells, numberOfShips)
+    else alert('Введені не коректні значення!')
+
+
+
 
 
   </script>
