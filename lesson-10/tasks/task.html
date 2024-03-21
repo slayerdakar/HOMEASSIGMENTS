@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task</title>
+</head>
+
+<body>
+
+  <h1>Задача</h1>
+
+  <div>
+    <ol>
+
+      <li>
+        <p>
+          При розв’язанні задач намагайтесь використовувати відповідні методи (map, filter, reduce,…) всюди, де це
+          можливо
+          Задача. Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000)</p>
+        <ol>
+          <li>
+            Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.
+          </li>
+          <li>
+            Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+          </li>
+          <li>
+            Сформувати список з тих цін, які більші за попереднє значення.
+          </li>
+          <li>
+            Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального
+          </li>
+          <li>
+            Підрахувати кількість змін цін
+          </li>
+          <li>
+            Визначити, чи є ціна, що менше 1000
+          </li>
+          <li>
+            Визначати, чи усі ціни більше за 1000
+          </li>
+          <li>
+            Підрахувати кількість цін, що більше за 1000
+          </li>
+          <li>
+            Підрахувати суму цін, що більше за 1000
+          </li>
+          <li>
+            Знайти першу ціну, що більше за 1000
+          </li>
+          <li>
+            Знайти індекс першої ціни, що більше за 1000
+          </li>
+          <li>
+            Знайти останню ціну, що більше за 1000
+          </li>
+          <li>
+            Знайти індекс останньої ціни, що більше за 1000
+          </li>
+        </ol>
+      </li>
+
+    </ol>
+  </div>
+
+  <script>
+
+
+    let prices = []
+    const randomArrayPricesLength10to20 = 10 + Math.floor(Math.random() * (20 - 10 + 1))
+    for (let i = 0; i < randomArrayPricesLength10to20; i++) {
+      let randomPrice = 1 + Math.floor(Math.random() * (10000 - 1 + 1))
+      prices.push(randomPrice)
+    }
+    document.write(`Згенерований масив:<br>${prices}<br><br>`)
+
+    document.write('1.Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.<br>')
+    const pricesMore1000 = prices.filter((price) => price > 1000)
+    document.write(`${pricesMore1000}<br><br>`)
+
+    document.write('2.Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.<br>')
+    let indexPriceMore1000 = []
+    prices.filter((price, index) => {
+      if (price > 1000) indexPriceMore1000.push(index)
+    })
+    document.write(`${indexPriceMore1000}<br><br>`)
+
+    document.write('3.Сформувати список з тих цін, які більші за попереднє значення.<br>')
+    let moreThanThePreviousOne = []
+    prices.forEach((price, i) => {
+      if (i !== 0 && price > prices[i - 1]) moreThanThePreviousOne.push(price)
+    })
+    document.write(`${moreThanThePreviousOne}<br><br>`)
+
+    document.write('4.Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального.<br>')
+    let maxPrice = Math.max(...prices)
+    let percentageValues = prices.map((price) => (price * 100 / maxPrice).toFixed(1))
+    document.write(`${percentageValues}<br><br>`)
+
+    document.write('5.Підрахувати кількість змін цін.<br>')
+    let countPriceChange = prices.reduce((prevPrice, price, index) =>
+      (index !== 0 && price !== prices[index - 1] ? prevPrice + 1 : prevPrice), 0
+    )
+    document.write(`${countPriceChange}<br><br>`)
+
+    document.write('6.Визначити, чи є ціна, що менше 1000.<br>')
+    prices.some(price => price < 1000) ? document.write('Yes') : document.write('No')
+    document.write('<br><br>')
+
+    document.write('7.Визначати, чи усі ціни більше за 1000.<br>')
+    prices.every(price => price > 1000) ? document.write('Yes') : document.write('No')
+    document.write('<br><br>')
+
+    document.write('8.Підрахувати кількість цін, що більше за 1000.<br>')
+    let countPriceMore1000 = prices.reduce(((prevPrice, price) => price > 1000 ? prevPrice + 1 : prevPrice), 0)
+    document.write(`${countPriceMore1000}<br><br>`)
+
+    document.write('9.Підрахувати суму цін, що більше за 1000.<br>')
+    let sumPriceMore1000 = prices.reduce(((prevPrice, price) => price > 1000 ? prevPrice + price : prevPrice), 0)
+    document.write(`${sumPriceMore1000}<br><br>`)
+
+    document.write('10.Знайти першу ціну, що більше за 1000.<br>')
+    let firstPriceMore1000 = prices.find(price => price > 1000)
+    document.write(`${firstPriceMore1000}<br><br>`)
+
+    document.write('11.Знайти індекс першої ціни, що більше за 1000.<br>')
+    let firstIndexPriceMore1000 = prices.findIndex(price => price > 1000)
+    document.write(`${firstIndexPriceMore1000}<br><br>`)
+
+    document.write('12.Знайти останню ціну, що більше за 1000.<br>')
+    let lastPriceMore1000 = prices.findLast(price => price > 1000)
+    document.write(`${lastPriceMore1000}<br><br>`)
+
+    document.write('13.Знайти індекс останньої ціни, що більше за 1000.<br>')
+    let lastIndexPriceMore1000 = prices.findLastIndex(price => price > 1000)
+    document.write(`${lastIndexPriceMore1000}<br><br>`)
+
+  </script>
+
+</body>
+
+</html>
