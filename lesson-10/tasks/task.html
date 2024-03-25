@@ -85,6 +85,13 @@
     prices.filter((price, index) => {
       if (price > 1000) indexPriceMore1000.push(index)
     })
+
+    //або reduce
+
+    // let indexPriceMore1000 = prices.reduce((prevPrice, price, index) => {
+    //   if (price > 1000) prevPrice.push(index)
+    //   return prevPrice
+    // }, [])
     document.write(`${indexPriceMore1000}<br><br>`)
 
     document.write('3.Сформувати список з тих цін, які більші за попереднє значення.<br>')
