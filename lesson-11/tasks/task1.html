@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task</title>
+</head>
+
+<body>
+
+  <h1>Задача 1</h1>
+
+  <div>
+    <p>
+      Знайти суми елементів у вказаній області
+    </p>
+
+
+  </div>
+
+  <script>
+
+
+    let arrElements = [
+      [45, 5, 78, 1, 23, 3, 89],
+      [99, 44, 57, 1, 9, 12, 26, 28, 55],
+      [54, 3, 7]
+    ]
+    // let arrElements = [
+    //   [10, 10, 10, 10],
+    //   [10, 10, 10, 10],
+    //   [10, 10, 10, 10],
+    //   [10, 10, 10, 10],
+    //   [10, 10, 10, 10],
+    // ]
+
+
+
+    const arrElementsHalf = Math.floor(arrElements.length / 2)
+
+
+    // 1.Номери рядків від 0 до половини, стовпці від 0 до половини.
+    let sumRowAndColFromZeroToHalf = 0
+    for (let row = 0; row < arrElementsHalf; row++) {
+      for (let col = 0; col < Math.floor(arrElements[row].length / 2); col++) {
+        sumRowAndColFromZeroToHalf += arrElements[row][col]
+      }
+    }
+    document.write(`1.Номери рядків від 0 до половини, стовпці від 0 до половини. Сума : ${sumRowAndColFromZeroToHalf}<br><br>`)
+
+    // 2.Номери рядків від 0 до половини, стовпці від половини до кінця.
+    let sumRowFromZeroToHalfColFromHalfToEnd = 0
+    for (let row = 0; row < arrElementsHalf; row++) {
+      for (let col = Math.floor(arrElements[row].length / 2); col < arrElements[row].length; col++) {
+        sumRowFromZeroToHalfColFromHalfToEnd += arrElements[row][col]
+      }
+    }
+    document.write(`2.Номери рядків від 0 до половини, стовпці від половини до кінця. Сума : ${sumRowFromZeroToHalfColFromHalfToEnd}<br><br>`)
+
+
+    // 3.Номери рядків (від половини до кінця, стовпці від 0 до половини).
+    let sumRowFromHalfToEndColFromZeroToHalf = 0
+    for (let row = arrElementsHalf; row < arrElements.length; row++) {
+      for (let col = 0; col < Math.floor(arrElements[row].length / 2); col++) {
+        sumRowFromHalfToEndColFromZeroToHalf += arrElements[row][col]
+      }
+    }
+    document.write(`3.Номери рядків (від половини до кінця, стовпці від 0 до половини). Сума : ${sumRowFromHalfToEndColFromZeroToHalf}<br><br>`)
+
+
+    // 4.Номери рядків від половини до кінця , стовпці від половини до кінця.
+    let sumRowFromHalfToEndColFromHalfToEnd = 0
+    for (let row = arrElementsHalf; row < arrElements.length; row++) {
+      for (let col = Math.floor(arrElements[row].length / 2); col < arrElements[row].length; col++) {
+        sumRowFromHalfToEndColFromHalfToEnd += arrElements[row][col]
+      }
+    }
+    document.write(`4.Номери рядків від половини до кінця , стовпці від половини до кінця. Сума : ${sumRowFromHalfToEndColFromHalfToEnd}<br><br>`)
+
+
+    // 5.Суму парних рядкі
+    let sumOfPairedRows = 0
+    for (let row = 0; row < arrElements.length; row += 2) {
+      for (let col = 0; col < arrElements[row].length; col++) {
+        sumOfPairedRows += arrElements[row][col]
+      }
+    }
+    document.write(`5.Суму парних рядків: ${sumOfPairedRows}<br><br>`)
+
+
+    // 6.Суму непарних стовпців
+    let sumOfUnpairedCols = 0
+    for (let row = 0; row < arrElements.length; row++) {
+      for (let col = 1; col < arrElements[row].length; col += 2) {
+        sumOfUnpairedCols += arrElements[row][col]
+      }
+    }
+    document.write(`6.Суму непарних стовпців: ${sumOfUnpairedCols}<br><br>`)
+
+
+    // 7.У парних рядках – непарні стовпці, у непарних – парні.
+    let sumPairedRowsUnpairedColsAndUnpairedRowsPairedCol = 0
+    let startRow = 0
+    let startCol = 1
+    for (let indexPairedAndUnpaired = 0; indexPairedAndUnpaired <= 1; indexPairedAndUnpaired++) {
+      for (let row = startRow; row < arrElements.length; row += 2) {
+        for (let col = startCol; col < arrElements[row].length; col += 2) {
+          sumPairedRowsUnpairedColsAndUnpairedRowsPairedCol += arrElements[row][col]
+        }
+      }
+      startRow++
+      startCol--
+    }
+
+    // або ще такий варіант
+
+    // for (let row = 0; row < arrElements.length; row++) {
+    //   for (let col = 0; col < arrElements[row].length; col++) {
+    //     if ((row === 0 || row % 2 === 0) && col !== 0 && col % 2 !== 0 || row % 2 !== 0 && (col === 0 || col % 2 === 0)) sumPairedRowsUnpairedColsAndUnpairedRowsPairedCol += arrElements[row][col]
+    //   }
+    // }
+
+
+    document.write(`7.У парних рядках – непарні стовпці, у непарних – парні.: ${sumPairedRowsUnpairedColsAndUnpairedRowsPairedCol}<br><br>`)
+
+
+  </script>
+
+</body>
+
+</html>

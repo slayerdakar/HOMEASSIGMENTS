@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task</title>
+</head>
+
+<body>
+
+  <h1>Задача 2</h1>
+
+  <div>
+    <p>
+      Дано інформацію про прибуток К магазинів протягом тижня. Знайти :
+    </p>
+
+
+  </div>
+
+  <script>
+
+
+    const listProfitOfStoresPerWeek = [
+      [450, 50, 78, 10, 23, 300, 90],
+      [99, 44, 57, 121, 9, 12, 26],
+      [550, 50, 78, 104, 23, 300, 89],
+      [99, 44, 578, 112, 944, 12, 26],
+      [450, 500, 78, 10, 23, 300, 89],
+      // [99, 44, 570, 10, 94, 12, 40],
+      // [990, 44, 57, 100, 95, 121, 55],
+    ]
+
+    const dayWeek = ['понеділок', 'вівторок', 'середа', 'четвер', 'п"ятниця', 'субота', 'неділя']
+
+
+    //загальний прибуток усіх магазинів по дням від...до
+    function getProfitOfAllStoresByDay(listProfitOfStoresPerWeek, startDay, endDay) {
+      let arrProfitOfAllStoresByDay = []
+      let profitPerDay = 0
+      startDay = startDay - 1
+      for (let day = startDay; day < endDay; day++) {
+        for (let shop = 0; shop < listProfitOfStoresPerWeek.length; shop++) {
+          profitPerDay += listProfitOfStoresPerWeek[shop][day]
+        }
+        arrProfitOfAllStoresByDay.push(profitPerDay)
+        profitPerDay = 0
+      }
+      return arrProfitOfAllStoresByDay
+    }
+
+    //максимальний прибуток магазину з усіх за день
+    function getMaxProfitDay(listProfitOfStoresPerWeek, numberDay) {
+      let numDay = numberDay - 1
+      let maxProfit = listProfitOfStoresPerWeek[0][numDay]
+      for (let shop = 1; shop < listProfitOfStoresPerWeek.length; shop++) {
+        if (listProfitOfStoresPerWeek[shop][numDay] > maxProfit) maxProfit = listProfitOfStoresPerWeek[shop][numDay]
+      }
+      return maxProfit
+    }
+
+    //елементи більші за ...(200)
+    function getMoreNumber(listProfitOfStoresPerWeek, number) {
+      let arrResult = []
+      for (const shop of listProfitOfStoresPerWeek) {
+        for (const profit of shop) {
+          if (profit > number) arrResult.push(profit)
+        }
+      }
+      return arrResult
+      // const arrResult = listProfitOfStoresPerWeek.reduce((newArr, row) => {
+      //   row.forEach((el) => {
+      //     if (el > number) newArr.push(el)
+      //   })
+      //   return newArr
+      // }, [])
+    }
+
+
+    // 1.загальний прибуток кожного магазину за тиждень;
+
+    function showProfitOfEachStoreForTheWeek(profitOfStoresPerWeek) {
+      let sumDayWeek = 0
+      for (let shop = 0; shop < profitOfStoresPerWeek.length; shop++) {
+        for (let day = 0; day < 7; day++) {
+          sumDayWeek += profitOfStoresPerWeek[shop][day]
+        }
+        document.write(`Магазин №${shop + 1} - прибуток за тиждень : ${sumDayWeek}<br>`)
+        sumDayWeek = 0
+      }
+    }
+    showProfitOfEachStoreForTheWeek(listProfitOfStoresPerWeek)
+
+    document.write('<br><br>')
+
+    // 2.загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.);
+
+    let profitOfAllStoresByWeek = getProfitOfAllStoresByDay(listProfitOfStoresPerWeek, 1, 7);
+    for (let day = 0; day < profitOfAllStoresByWeek.length; day++) {
+      document.write(`Прибуток усіх магазинів за - ${dayWeek[day]} : ${profitOfAllStoresByWeek[day]}<br>`)
+    }
+    document.write('<br><br>')
+    // 3.загальний прибуток за робочі дні
+
+    let arrProfitOfAllStoresByWorksDays = getProfitOfAllStoresByDay(listProfitOfStoresPerWeek, 1, 5);
+    let sumProfitAllStoresByWorksDays = arrProfitOfAllStoresByWorksDays.reduce((predDayProfitShop, dayProfitShop) => predDayProfitShop + dayProfitShop)
+    document.write(`Загальний прибуток за робочі дні : ${sumProfitAllStoresByWorksDays}<br><br>`)
+
+    // 4.загальний прибуток за вихідні дні
+
+    let arrProfitOfAllStoresByWeekendDays = getProfitOfAllStoresByDay(listProfitOfStoresPerWeek, 6, 7);
+    let sumProfitAllStoresByWeekendDays = arrProfitOfAllStoresByWeekendDays.reduce((predDayProfitShop, dayProfitShop) => predDayProfitShop + dayProfitShop)
+    document.write(`Загальний прибуток за вихідні дні : ${sumProfitAllStoresByWeekendDays}<br><br>`)
+
+
+    //5.максимальний прибуток за середу
+    let numberDay = 3
+    document.write(`Максимальний прибуток за ${dayWeek[numberDay - 1]} : ${getMaxProfitDay(listProfitOfStoresPerWeek, numberDay)}<br><br>`)
+
+    // 6.сформувати загальний список (одновимірний масив) зі значенням, які що більші за 200
+
+    let numberMore = 200
+    document.write(`Загальний список (одновимірний масив) зі значенням ${numberMore} : ${getMoreNumber(listProfitOfStoresPerWeek, numberMore)}<br><br>`)
+
+    // 7.відсортувати кожен тиждень за зростанням
+
+    let sortProfitForTheWeekGrow = listProfitOfStoresPerWeek.map((shop) => {
+      return shop.slice().sort((a, b) => a - b)
+    })
+    document.write(`Відсортувати кожен тиждень за зростанням <br><br>`)
+    sortProfitForTheWeekGrow.forEach((element) => {
+      document.write(`${element} <br>`);
+    });
+    document.write(`<br>`)
+    // 8.відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні
+    // рядків потрібно порівнювати максимальні елементи у кожному з цих рядків
+
+    const arrMaxProfitPerWeekSortMaxToMin = listProfitOfStoresPerWeek.map(week => Math.max(...week)).sort((a, b) => b - a)
+    let arrSortWeeksMaxToMin = [...arrMaxProfitPerWeekSortMaxToMin]
+    for (const week of listProfitOfStoresPerWeek) {
+      arrSortWeeksMaxToMin[arrSortWeeksMaxToMin.indexOf(Math.max(...week))] = week
+    }
+    document.write(`Відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні
+    // рядків потрібно порівнювати максимальні елементи у кожному з цих рядків<br><br>`)
+    arrSortWeeksMaxToMin.forEach((week) => {
+      document.write(`${week}<br>`)
+    })
+
+    document.write(`<br>`)
+
+
+    //  9.Упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти
+    // суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти
+    // раніше).
+
+    const arrSumProfitPerWeekSortMaxToMin = listProfitOfStoresPerWeek.map(week => week.reduce((prevSum, profit) => prevSum + profit)).sort((a, b) => b - a)
+    let arrSortSumWeeksMaxToMin = [...arrSumProfitPerWeekSortMaxToMin]
+    for (const week of listProfitOfStoresPerWeek) {
+      arrSortSumWeeksMaxToMin[arrSortSumWeeksMaxToMin.indexOf(week.reduce((prevSum, profit) => prevSum + profit))] = week
+    }
+    document.write(`Упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти
+    // суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти
+    // раніше).<br><br>`)
+    arrSortSumWeeksMaxToMin.forEach((week) => {
+      document.write(`${week}<br>`)
+    })
+
+  </script>
+
+</body>
+
+</html>

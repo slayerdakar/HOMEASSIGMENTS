@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task</title>
+</head>
+
+<body>
+
+  <h1>Задача 3</h1>
+
+  <div>
+    <p>
+      Морський бій. Випадковим чином на двовимірному полі розміром 6*6 розташовується 5 кораблів. Користувач стріляє
+      вказуючи координати. Гра продовжується поки не потоплено усі кораблі або у користувача не закінчаться снаряди.
+    </p>
+
+  </div>
+
+  <script>
+    function creategameFielddWithShips(rowNumber = 6, colNumber = 6, shipNumber = 5) {
+      let gameField = []
+      for (let row = 0; row < rowNumber; row++) {
+        let row = new Array(colNumber).fill(0)
+        gameField.push(row)
+      }
+      for (let s = 0; s < shipNumber;) {
+        let row = Math.floor(Math.random() * rowNumber)
+        let col = Math.floor(Math.random() * colNumber)
+        if (gameField[row][col] !== 1) {
+          gameField[row][col] = 1
+          s++
+        }
+      }
+      return gameField
+    }
+    function playGame(shipNumber, shellNumber, gameField) {
+      while (shipNumber > 0 && shellNumber > 0) {
+        let r = parseInt(prompt('Введіть рядок')) - 1
+        let с = parseInt(prompt('Введіть стовпець')) - 1
+        shellNumber--
+        if (gameField[r][с] === 1) {
+          alert('Влучив')
+          shipNumber--
+          gameField[r][с] = 0
+        }
+        else alert('Промах')
+      }
+      if (shipNumber === 0) return 'Перемога'
+      else return 'Програв'
+    }
+
+    function game(shipNumber = 5, shellNumber = 6, rowNumber = 6, colNumber = 6) {
+      let gameField = creategameFielddWithShips(rowNumber, colNumber, shipNumber)
+      let res = playGame(shipNumber, shellNumber, gameField)
+      return alert(res)
+    }
+    game();
+
+  </script>
+
+</body>
+
+</html>
