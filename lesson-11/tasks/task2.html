@@ -104,13 +104,13 @@
     // 3.загальний прибуток за робочі дні
 
     let arrProfitOfAllStoresByWorksDays = getProfitOfAllStoresByDay(listProfitOfStoresPerWeek, 1, 5);
-    let sumProfitAllStoresByWorksDays = arrProfitOfAllStoresByWorksDays.reduce((predDayProfitShop, dayProfitShop) => predDayProfitShop + dayProfitShop)
+    let sumProfitAllStoresByWorksDays = arrProfitOfAllStoresByWorksDays.reduce((predSumProfit, dayProfitShop) => predSumProfit + dayProfitShop)
     document.write(`Загальний прибуток за робочі дні : ${sumProfitAllStoresByWorksDays}<br><br>`)
 
     // 4.загальний прибуток за вихідні дні
 
     let arrProfitOfAllStoresByWeekendDays = getProfitOfAllStoresByDay(listProfitOfStoresPerWeek, 6, 7);
-    let sumProfitAllStoresByWeekendDays = arrProfitOfAllStoresByWeekendDays.reduce((predDayProfitShop, dayProfitShop) => predDayProfitShop + dayProfitShop)
+    let sumProfitAllStoresByWeekendDays = arrProfitOfAllStoresByWeekendDays.reduce((predSumProfit, dayProfitShop) => predSumProfit + dayProfitShop)
     document.write(`Загальний прибуток за вихідні дні : ${sumProfitAllStoresByWeekendDays}<br><br>`)
 
 
