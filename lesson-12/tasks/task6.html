@@ -25,6 +25,9 @@
     let arrNames = ['Ivan', 'Petro', 'Oksana', 'Pavlo', 'Olga']
 
 
+
+    // console.log(arrNames.sort((firstName, secondName) => firstName.length - secondName.length));
+
     function sortArr(arrNames) {
       for (let k = 1; k < arrNames.length; k++) {
         const comparable = arrNames[k];
@@ -55,8 +58,9 @@
 
     let nameLength = 5
     let arrNamesSortLength = sortArr(arrNames)
-    console.log(arrNamesSortLength);
     let searchNameInd = getNameIndex(arrNamesSortLength, nameLength)
+    document.write(`Даний список : ${arrNames}<br>`)
+    document.write(`Відсортований список : ${arrNamesSortLength}<br>`)
     if (searchNameInd !== -1) document.write(`У масиві є ім’я довжитною ${nameLength} символів під індексом : ${searchNameInd}`)
     else document.write(`У масиві немає ім’я довжитною ${nameLength} символів`)
 

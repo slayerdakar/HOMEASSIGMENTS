@@ -40,6 +40,8 @@
 
     let elementFind = 'Olga'
     const searchInd = getNameIndex(arrNameSort, elementFind)
+    document.write(`Даний список : ${arrNames}<br>`)
+    document.write(`Відсортований список : ${arrNameSort}<br>`)
     if (searchInd !== -1) document.write(`У масиві є ім’я ${elementFind} під індексом : ${searchInd}`)
     else document.write(`У масиві немає ім’я : ${elementFind}`)
 
