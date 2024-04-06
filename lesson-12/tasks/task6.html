@@ -28,7 +28,7 @@
 
     // console.log(arrNames.sort((firstName, secondName) => firstName.length - secondName.length));
 
-    function sortArr(arrNames) {
+    function sortArr([...arrNames]) {
       for (let k = 1; k < arrNames.length; k++) {
         const comparable = arrNames[k];
         let i = k - 1
