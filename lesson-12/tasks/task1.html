@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task</title>
+</head>
+
+<body>
+
+  <h1>Задача 1</h1>
+
+  <div>
+    <p>
+      1. Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів та порівнянь чисел під час сортування
+      бульбашкою
+    </p>
+
+  </div>
+
+  <script>
+
+
+    let arrRandNumbers = [3, 18, 19, 51, 17, 13, 70, 80, 62, 12, 73, 60, 13, 20, 16, 10, 52, 0, 81, 90, 31, 48, 39, 13, 9, 53, 2, 80, 48, 6]
+
+    // let arrRandNumbers = []
+    // let quantityNumbers = 30
+    // for (let i = 0; i < quantityNumbers; i++) {
+    //   let randNumber = Math.floor(Math.random() * 100)
+    //   arrRandNumbers.push(randNumber)
+    // }
+    // document.write(`${arrRandNumbers}<br>`)
+
+    let comparison = 0
+    let exchange = 0
+    let flag
+    do {
+      flag = false
+      for (let num = 1; num < arrRandNumbers.length; num++) {
+        comparison++
+        if (arrRandNumbers[num - 1] > arrRandNumbers[num]) {
+          let tmp = arrRandNumbers[num]
+          arrRandNumbers[num] = arrRandNumbers[num - 1]
+          arrRandNumbers[num - 1] = tmp
+          exchange++
+          flag = true
+        }
+      }
+    } while (flag)
+
+
+    document.write(`<br>`)
+
+    document.write(`${arrRandNumbers}<br>`)
+    document.write(`Порівнянь зроблено : ${comparison}<br>`)
+    document.write(`Обмінів зроблено : ${exchange}`)
+  </script>
+
+</body>
+
+</html>

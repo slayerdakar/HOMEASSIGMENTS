@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task</title>
+</head>
+
+<body>
+
+  <h1>Задача 4</h1>
+
+  <div>
+    <p>
+      4. Для розглянутих методів сортування спробувати вивести етапи сортування шляхом виведення відповідних таблиць за
+      зразком .
+    </p>
+
+  </div>
+
+  <script>
+
+    // let arrNumbers = []
+    // let quantityNumbers = 30
+    // for (let i = 0; i < quantityNumbers; i++) {
+    //   let randNumber = Math.floor(Math.random() * 100)
+    //   arrNumbers.push(randNumber)
+    // }
+    let arrNumbers = [3, 5, 1, 4, 2]
+
+    document.write(`${arrNumbers}<br><br>`)
+
+    document.write(`Сортування бульбашкою<br>`)
+    function bubbleSort([...arrNumbers]) {
+      do {
+        flag = false
+        for (let num = 1; num < arrNumbers.length; num++) {
+          if (arrNumbers[num - 1] > arrNumbers[num]) {
+            let tmp = arrNumbers[num]
+            arrNumbers[num] = arrNumbers[num - 1]
+            arrNumbers[num - 1] = tmp
+            flag = true
+            document.write(`${arrNumbers}<br>`)
+          }
+        }
+      } while (flag)
+    }
+    bubbleSort(arrNumbers)
+
+    document.write(`<br>Сортування змішуванням<br>`)
+
+    function cocktailSort([...arrNumbers]) {
+      const swap = (arr, i, j) => {
+        const akum = arr[i]
+        arr[i] = arr[j]
+        arr[j] = akum
+      }
+      let leftInd = 0
+      let rightInd = arrNumbers.length - 1
+
+      while (leftInd < rightInd) {
+        for (let ind = leftInd; ind < rightInd; ind++) {
+          if (arrNumbers[ind] > arrNumbers[ind + 1]) {
+            swap(arrNumbers, ind, ind + 1)
+            document.write(`${arrNumbers}<br>`)
+          }
+        }
+        rightInd--
+        for (let ind = rightInd; ind > leftInd; ind--) {
+          if (arrNumbers[ind] < arrNumbers[ind - 1]) {
+            swap(arrNumbers, ind, ind - 1)
+            document.write(`${arrNumbers}<br>`)
+          }
+        }
+        leftInd++
+      }
+    }
+
+
+
+    cocktailSort(arrNumbers)
+
+    document.write(`<br>Сортування включеннями<br>`)
+
+    function insertSort([...arrNumbers]) {
+      for (let k = 1; k < arrNumbers.length; k++) {
+        const comparable = arrNumbers[k]
+        let i = k - 1
+        while (i >= 0 && arrNumbers[i] > comparable) {
+          arrNumbers[i + 1] = arrNumbers[i]
+          i--
+          document.write(`${arrNumbers}<br>`)
+        }
+        arrNumbers[i + 1] = comparable
+        document.write(`${arrNumbers}<br>`)
+      }
+    }
+
+    insertSort(arrNumbers)
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task</title>
+</head>
+
+<body>
+
+  <h1>Задача 2</h1>
+
+  <div>
+    <p>
+      2. Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів та порівнянь чисел під час сортування
+      змішуванням.
+    </p>
+
+  </div>
+
+  <script>
+
+    // let arrRandNumbers = []
+    // let quantityNumbers = 30
+    // for (let i = 0; i < quantityNumbers; i++) {
+    //   let randNumber = Math.floor(Math.random() * 100)
+    //   arrRandNumbers.push(randNumber)
+    // }
+    let arrRandNumbers = [3, 18, 19, 51, 17, 13, 70, 80, 62, 12, 73, 60, 13, 20, 16, 10, 52, 0, 81, 90, 31, 48, 39, 13, 9, 53, 2, 80, 48, 6]
+
+
+
+    const swap = (arr, i, j) => {
+      const akum = arr[i]
+      arr[i] = arr[j]
+      arr[j] = akum
+    }
+    let leftInd = 0
+    let rightInd = arrRandNumbers.length - 1
+
+    let comparison = 0
+    let exchange = 0
+
+    while (leftInd < rightInd) {
+      for (let ind = leftInd; ind < rightInd; ind++) {
+        comparison++
+        if (arrRandNumbers[ind] > arrRandNumbers[ind + 1]) {
+          swap(arrRandNumbers, ind, ind + 1)
+          exchange++
+        }
+      }
+      rightInd--
+      for (let ind = rightInd; ind > leftInd; ind--) {
+        comparison++
+        if (arrRandNumbers[ind] < arrRandNumbers[ind - 1]) {
+          swap(arrRandNumbers, ind, ind - 1)
+          exchange++
+        }
+      }
+      leftInd++
+    }
+
+    document.write(`${arrRandNumbers}<br>`)
+    document.write(`Порівнянь зроблено : ${comparison}<br>`)
+    document.write(`Обмінів зроблено : ${exchange}`)
+  </script>
+
+</body>
+
+</html>
