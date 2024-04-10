@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task</title>
+</head>
+
+<body>
+
+  <h1>Задача 1</h1>
+
+  <div>
+    <p>
+      Задача 1. Описати масив об’єктів – сайтів розроблених компанією з такими властивостями
+    </p>
+    <p>
+      ----- Властивості ------
+    </p>
+    <ul>
+      <li>
+        - назва компанії на час розробки (назву періодично змінюють)
+      </li>
+      <li>
+        - власник компанії
+      </li>
+      <li>
+        - споснсори (масив спонсорів)
+        <ul>
+          <li>
+            * прізвище спонсора
+          </li>
+          <li>
+            * ім’я спонсора
+          </li>
+          <li>
+            * сума вкладень спонсора
+          </li>
+        </ul>
+      </li>
+      <li>
+        - рік випуску
+      </li>
+      <li>
+        - вартість сайту
+      </li>
+    </ul>
+    <br>
+    <ol>
+      Знайти:
+      <li>
+        Загальну вартість усіх сайтів
+      </li>
+      <li>
+        Кількість сайтів, що було зроблено між 2000 та 2009 рр.
+      </li>
+      <li>
+        Кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+      </li>
+      <li>
+        Створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
+      </li>
+      <li>
+        Знайти рік, коли прибуток був найбільшим
+      </li>
+      <li>
+        Упорядкувати список за спаданням прибутку
+      </li>
+      <li>
+        Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+      </li>
+    </ol>
+
+  </div>
+
+  <script>
+
+    let siteDataArray = [
+      {
+        companyName: 'DesignPlanet',
+        companyOwner: 'Justine Clapton',
+        sponsors: [
+          {
+            firstName: 'Christopher',
+            secondName: 'Gibbs',
+            investmentAmount: 10000
+          },
+          {
+            firstName: 'Adam',
+            secondName: 'Charlson',
+            investmentAmount: 300000
+          }
+        ],
+        productionYear: 2007,
+        costSite: 15000
+      },
+      {
+        companyName: 'REDSTONE',
+        companyOwner: 'Ulysses Audley',
+        sponsors: [
+          {
+            firstName: 'Jose',
+            secondName: 'Benson',
+            investmentAmount: 20000
+          }
+        ],
+        productionYear: 2018,
+        costSite: 17000
+      },
+      {
+        companyName: 'MEGASITE',
+        companyOwner: 'Robbie Dodson',
+        sponsors: [
+          {
+            firstName: 'Jane',
+            secondName: 'Blomfield',
+            investmentAmount: 25000
+          },
+          {
+            firstName: 'Beryl',
+            secondName: 'King',
+            investmentAmount: 100000
+          },
+          {
+            firstName: 'Juan',
+            secondName: 'Chapman',
+            investmentAmount: 20000
+          }
+        ],
+        productionYear: 2008,
+        costSite: 20000
+      },
+      {
+        companyName: 'Solar Digital',
+        companyOwner: 'Nathan Derrick',
+        sponsors: [
+          {
+            firstName: 'Dominique',
+            secondName: 'Thomas',
+            investmentAmount: 1000
+          },
+          {
+            firstName: 'Victoria',
+            secondName: 'Jones',
+            investmentAmount: 32000
+          }
+        ],
+        productionYear: 2021,
+        costSite: 9000
+      },
+    ]
+
+    // 1.Загальну вартість усіх сайтів
+
+    let totalSumAllSite = siteDataArray.reduce((predSum, site) =>
+      predSum + site.costSite
+      , 0)
+
+    document.write(`1.Загальна вартість усіх сайтів складає : ${totalSumAllSite}<br>`)
+
+    //2.Кількість сайтів, що було зроблено між 2000 та 2009 рр.
+    let quantitySiteBetweenYears = siteDataArray.reduce((predCount, site) =>
+      site.productionYear >= 2000 && site.productionYear < 2009 ? predCount + 1 : predCount
+      , 0)
+
+    document.write(`2.Кількість сайтів, що було зроблено між 2000 та 2009 рр. : ${quantitySiteBetweenYears}<br>`)
+
+    // 3.Кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+    let quantitySiteMoreThan = siteDataArray.reduce((predCount, site) => {
+      let sumSite = site.sponsors.reduce((prevSumSponsors, attachmentSponsor) => prevSumSponsors + attachmentSponsor.investmentAmount, 0)
+      if (sumSite > 100000)
+        return predCount + 1
+      else
+        return predCount
+
+    }
+      , 0)
+
+    document.write(`3.Кількість сайтів, де сума спонсорських вкладень була більшою за 100000 : ${quantitySiteMoreThan}<br>`)
+
+    //4. Створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
+    let listSponsors = []
+    for (const site of siteDataArray) {
+      for (const obj of site.sponsors) {
+        listSponsors.push(obj.firstName + ' ' + obj.secondName)
+      }
+    }
+
+    document.write(`4.Створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив :<br><br>`)
+
+    for (const nameSponsor of listSponsors) {
+      document.write(`${nameSponsor}<br>`)
+    }
+
+    //5. Знайти рік, коли прибуток був найбільшим
+    let indexMaxSumIncomeSponsors = 0
+    let maxSumIncomeSponsors = siteDataArray[0].sponsors.reduce((predSumsponsors, attachmentSponsor) => predSumsponsors + attachmentSponsor.investmentAmount, 0)
+    for (let obj = 1; obj < siteDataArray.length; obj++) {
+      let sumIncomeSponsors = siteDataArray[obj].sponsors.reduce((predSumsponsors, attachmentSponsor) => predSumsponsors + attachmentSponsor.investmentAmount, 0)
+      if (sumIncomeSponsors > maxSumIncomeSponsors) {
+        maxSumIncomeSponsors = sumIncomeSponsors
+        indexMaxSumIncomeSponsors = obj
+      }
+    }
+    let yearWithTheHighestIncome = siteDataArray[indexMaxSumIncomeSponsors].productionYear
+
+    document.write(`<br>5. Рік, коли прибуток по спонсорству був найбільшим: ${yearWithTheHighestIncome}<br><br>`)
+
+    //6. Упорядкувати список за спаданням прибутку
+
+
+    let listInvestmentAmountSponsors = []
+    let sortSiteDataArrayDescending = [...siteDataArray]
+    // console.log(siteDataArray);
+    for (const site of siteDataArray) {
+      listInvestmentAmountSponsors.push(site.sponsors.reduce((predSumsponsors, attachmentSponsor) => predSumsponsors + attachmentSponsor.investmentAmount, 0))
+    }
+    for (let k = 1; k < listInvestmentAmountSponsors.length; k++) {
+      const comparable = listInvestmentAmountSponsors[k]
+      const comparableListSite = sortSiteDataArrayDescending[k]
+      let i = k - 1
+      while (i >= 0 && listInvestmentAmountSponsors[i] < comparable) {
+        listInvestmentAmountSponsors[i + 1] = listInvestmentAmountSponsors[i]
+        sortSiteDataArrayDescending[i + 1] = sortSiteDataArrayDescending[i]
+        i--
+      }
+      listInvestmentAmountSponsors[i + 1] = comparable
+      sortSiteDataArrayDescending[i + 1] = comparableListSite
+    }
+    console.log('6. Упорядкувати список за спаданням прибутку')
+    console.log(sortSiteDataArrayDescending)
+
+    document.write('<br>6. Список за спаданням прибутку: консоль <br>')
+
+    //7.Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+
+    let listSitePriceLess10000 = []
+    let listSitePriceMore10000 = []
+    for (const obj of siteDataArray) {
+      obj.costSite > 10000 ? listSitePriceMore10000.push(JSON.parse(JSON.stringify(obj))) : listSitePriceLess10000.push(JSON.parse(JSON.stringify(obj)))
+    }
+
+    ///////
+    // let listSitePriceMore10000 = JSON.parse(JSON.stringify(siteDataArray)).filter((site) => site.costSite > 10000)
+    // console.log(listSitePriceMore10000)
+    // let listSitePriceLess10000 = JSON.parse(JSON.stringify(siteDataArray)).filter((site) => site.costSite < 10000)
+    // console.log(listSitePriceMore10000)
+    //////
+    console.log('7.Копії об’єктів, що містять сайти з вартість до 10000')
+    console.log(listSitePriceLess10000)
+    console.log('7.Копії об’єктів, що містять сайти з вартість більше 10000')
+    console.log(listSitePriceMore10000)
+
+    document.write('<br>7.Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000 : консоль<br>')
+
+  </script>
+
+</body>
+
+</html>
