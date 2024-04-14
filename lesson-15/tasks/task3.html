@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task</title>
+</head>
+
+<body>
+
+  <h1>Задача 3</h1>
+
+  <div>
+    <p>
+      Задача 3. Розробити клас MultChecker для перевірки таблиці множення
+    </p>
+    <ul>
+      Поля(властивості)
+      <li>
+        Число, яке перевіряємо (наприклад, перевірка частини таблиці множення на 7)
+      </li>
+      <li>
+        Кількість правильних відповідей
+      </li>
+      <li>
+        Кількість неправильних відповідей
+      </li>
+    </ul>
+    <ul>
+      Методи (дії)
+      <li>
+        Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)
+      </li>
+      <li>
+        Перевірка правильності вказаної відповіді
+      </li>
+      <li>
+        render - виведення інформації про тестування на екран
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    class MultChecker {
+      constructor(numberChecking = 1, numberSamples) {
+        this.numberChecking = numberChecking     //Число, яке перевіряємо
+        this.numberCorrectAnswers = 0            //Кількість правильних відповідей
+        this.numberWrongtAnswers = 0             //Кількість неправильних відповідей
+        this.numberSamples = numberSamples       //К-сть прикладів
+        this.correctAnswer = 0                   //Вірний результат заданого прикладу
+      }
+
+      //============================================
+      //Генерування прикладу + перевірка в одному методі без this.correctAnswer
+      // exampleGeneration() {
+      //   while (this.numberSamples > 0) {
+      //     let randomNumber = 1 + Math.floor(Math.random() * 10)
+      //     let res = parseInt(prompt(`Дайте відповідь : ${this.numberChecking} * ${randomNumber} = `))
+      //     this.numberChecking * randomNumber === res ? this.numberCorrectAnswers++ : this.numberWrongtAnswers++
+      //     this.numberSamples--
+      //   }
+      // }
+      //============================================
+
+      // або так, більше підходить під умову задачи
+
+      // Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)
+      exampleGeneration() {
+        let randomNumber = 1 + Math.floor(Math.random() * 10)
+        let res = parseInt(prompt(`Дайте відповідь : ${this.numberChecking} * ${randomNumber} = `))
+        this.correctAnswer = this.numberChecking * randomNumber
+        return res
+      }
+      //Перевірка правильності вказаної відповідь 
+      checkingAnswer() {
+        while (this.numberSamples > 0) {
+          this.exampleGeneration() === this.correctAnswer ? this.numberCorrectAnswers++ : this.numberWrongtAnswers++
+          this.numberSamples--
+        }
+      }
+      //render - виведення інформації про тестування на екран
+      toString() {
+        return `
+        Перевірка з числом : ${this.numberChecking}<br>
+        Кількість правильних відповідей : ${this.numberCorrectAnswers}<br>
+        Кількість неправильних відповідей : ${this.numberWrongtAnswers}
+        `
+      }
+    }
+
+    let multChecker = new MultChecker(7, 2)
+    //==========================
+    // multChecker.exampleGeneration()
+    //==========================
+    multChecker.checkingAnswer()
+    document.write(multChecker)
+
+  </script>
+
+</body>
+
+</html>

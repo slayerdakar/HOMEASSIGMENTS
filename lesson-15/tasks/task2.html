@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task</title>
+</head>
+
+<body>
+
+  <h1>Задача 2</h1>
+
+  <div>
+    <p>
+      Задача 2. Створити об’єкт «Авто».
+    </p>
+    <ul>
+      Поля(властивості)
+      <li>
+        Марка
+      </li>
+      <li>
+        Розмір бака
+      </li>
+      <li>
+        Кількість наявних літрів
+      </li>
+      <li>
+        Кількість місць
+      </li>
+      <li>
+        Кількість пасажирів
+      </li>
+    </ul>
+    <ul>
+      Методи (дії)
+      <li>
+        Заправка на вказану кількість літрів
+      </li>
+      <li>
+        Виведення кількості пасажирів
+      </li>
+      <li>
+        Додавання пасажирів
+      </li>
+      <li>
+        Висадка пасажирів
+
+      </li>
+    </ul>
+
+  </div>
+
+  <script>
+
+    let auto = {
+      brand: 'Peugeot',
+      tankSize: 50,
+      numberOfAvailableLiters: 15,
+      numberOfSeats: 4,
+      numberOfPassengers: 2,
+      // Заправка на вказану кількість літрів
+      refuelingForTheSpecifiedNumberOfLiters: function (numberOfLiters) {
+        this.numberOfAvailableLiters += numberOfLiters
+      },
+      // Виведення кількості пасажирів
+      showNumberOfPassengers: function () {
+        document.write(`К-сть пасажирів : ${this.numberOfPassengers}`)
+      },
+      // Додавання пасажирів
+      addingPassengers: function (numPassengers) {
+        this.numberOfPassengers += numPassengers
+      },
+      // Висадка пасажирів
+      disembarkationOfPassengers: function (numPassengers) {
+        this.numberOfPassengers -= numPassengers
+      },
+      toString: function () {
+        return `
+        Марка - ${this.brand}<br>
+        Розмір бака - ${this.tankSize}<br>
+        Кількість наявних літрів - ${this.numberOfAvailableLiters}<br>
+        Кількість місць - ${this.numberOfSeats}<br>
+        Кількість пасажирів - ${this.numberOfPassengers}<br>
+        `
+      }
+    }
+
+    auto.showNumberOfPassengers()
+    document.write('<br><br>')
+    document.write(`<strong>Початкові властивості об'єкту :</strong><br>${auto}`)
+    //Заправка
+    auto.refuelingForTheSpecifiedNumberOfLiters(20)
+    //Додавання пасажирів
+    auto.addingPassengers(2)
+    //Висадка пасажирів
+    auto.disembarkationOfPassengers(3)
+
+    document.write(`<br><strong>Властивості об'єкту після внесення деяких змін:</strong><br>${auto}`)
+
+  </script>
+
+</body>
+
+</html>

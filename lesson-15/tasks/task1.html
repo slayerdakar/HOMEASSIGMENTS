@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task</title>
+</head>
+
+<body>
+
+  <h1>Задача 1</h1>
+
+  <div>
+    <p>
+      Задача 1. Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є заєць і 0 в іншому випадку.
+    </p>
+  </div>
+
+  <script>
+
+    let shootingGallery = {
+      arrField: [1, 0, 1, 0, 1],
+      gameRes: function () {
+        let userShot = parseInt(prompt('Зробіть постріл від 1 до 5')) - 1
+        if (this.arrField[userShot] === 1) {
+          this.arrField[userShot] = 'X'
+          document.write(`Ви влучили : ${this.arrField}`)
+        }
+        else {
+          document.write(`Ви не влучили : ${this.arrField}`)
+        }
+      }
+    }
+    shootingGallery.gameRes()
+
+  </script>
+
+</body>
+
+</html>

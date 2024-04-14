@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task</title>
+</head>
+
+<body>
+
+  <h1>Задача 0</h1>
+
+  <div>
+    <p>
+      Задача 0. Дано два об’єкта. Обидва містять масив цілих чисел. При цьому у одному з них є функція знаходження суми,
+      а у іншому – функція для знаходження добутку тих, які знаходяться між заданими мінімальним і максимальних
+      значенням.
+      Використати обидва методи стосовно обидвох об’єктів (використати call, apply)
+
+    </p>
+  </div>
+
+  <script>
+
+    let obj1 = {
+      arrNumber: [1, 45, 66, 32, 7, 87, 99, 10, 34],
+      getSum: function () {
+        let arrSum = this.arrNumber.reduce((prevSum, number) => prevSum + number, 0)
+        return arrSum
+      }
+    }
+
+    let obj2 = {
+      arrNumber: [10, 45, 86, 2, 70, 90, 99, 10, 43],
+      getMultBetweenMinNumberMaxNumber: function (minNumber, maxNumber) {
+        let arrMult = this.arrNumber.reduce((prevMult, number) => number > minNumber && number < maxNumber ? prevMult * number : prevMult, 1)
+        return arrMult
+      }
+    }
+
+    let obj2SumCall = obj1.getSum.call(obj2)
+    let obj1MultBetweenMinNumberMaxNumberCall = obj2.getMultBetweenMinNumberMaxNumber.call(obj1, 1, 11)
+    let obj2SumApply = obj1.getSum.apply(obj2)
+    let obj1MultBetweenMinNumberMaxNumberApply = obj2.getMultBetweenMinNumberMaxNumber.apply(obj1, [1, 11])
+    document.write(`Результат методом call :<br>Сумма - ${obj2SumCall}<br>Добуток - ${obj1MultBetweenMinNumberMaxNumberCall}<br><br>`)
+    document.write(`Результат методом apply :<br>Сумма - ${obj2SumApply}<br>Добуток - ${obj1MultBetweenMinNumberMaxNumberApply}`)
+
+  </script>
+
+</body>
+
+</html>

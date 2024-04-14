@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task</title>
+</head>
+
+<body>
+
+  <h1>Задача 4</h1>
+
+  <div>
+    <p>
+      Задача 4. Розробити клас Baner
+    </p>
+    <ul>
+      Поля(властивості)
+      <li>
+        Масив об’єктів ( графічних зображень та посилань на сайти)
+      </li>
+    </ul>
+    <ul>
+      Методи (дії)
+      <li>
+        Метод випадкового вибору об’єкта (графічного зображення та посилання)
+      </li>
+      <li>
+        Метод виведення випадкового банера
+      </li>
+    </ul>
+
+  </div>
+
+  <script>
+
+    let arrObj = [
+      {
+        image: `<img src="./img_task4/img1.jpg" alt="Image">`,
+        linkSite: `<a href="https://ex-fs.net/serials/119385-follaut.html">link</a>`
+      },
+      {
+        image: `<img src="./img_task4/img2.jpg" alt="Image">`,
+        linkSite: `<a href="https://ex-fs.net/film/119124-sled-killera.html">link</a>`
+      },
+      {
+        image: `<img src="./img_task4/img3.jpg" alt="Image">`,
+        linkSite: `<a href="https://ex-fs.net/film/115221-nefarius.html">link</a>`
+      }
+    ]
+
+
+    class Baner {
+      constructor(arrObj) {
+        this.listObj = arrObj
+      }
+      //Метод випадкового вибору об’єкта (графічного зображення та посилання)
+      getRandomObjectArr() {
+        let randomNumObj = Math.floor(Math.random() * this.listObj.length)
+        return this.listObj[randomNumObj]
+      }
+      // Метод виведення випадкового банера
+      showRandBaner() {
+        document.write(`${this.getRandomObjectArr().image}`)
+      }
+      toString() {
+        if (this.listObj.length > 0) {
+          return this.listObj[0].image
+        }
+        else {
+          return `Список об"єктів пустий.`
+        }
+      }
+    }
+
+    let baner1 = new Baner(arrObj)
+    //Випадковий вибор об’єкта
+    console.log(baner1.getRandomObjectArr());
+    //Ввід випадкового банера
+    baner1.showRandBaner()
+
+
+    // document.write(baner1)
+
+  </script>
+
+</body>
+
+</html>
