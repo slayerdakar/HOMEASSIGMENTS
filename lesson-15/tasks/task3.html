@@ -51,19 +51,6 @@
         this.correctAnswer = 0                   //Вірний результат заданого прикладу
       }
 
-      //============================================
-      //Генерування прикладу + перевірка в одному методі без this.correctAnswer
-      // exampleGeneration() {
-      //   while (this.numberSamples > 0) {
-      //     let randomNumber = 1 + Math.floor(Math.random() * 10)
-      //     let res = parseInt(prompt(`Дайте відповідь : ${this.numberChecking} * ${randomNumber} = `))
-      //     this.numberChecking * randomNumber === res ? this.numberCorrectAnswers++ : this.numberWrongtAnswers++
-      //     this.numberSamples--
-      //   }
-      // }
-      //============================================
-
-      // або так, більше підходить під умову задачи
 
       // Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)
       exampleGeneration() {
@@ -78,8 +65,17 @@
           this.exampleGeneration() === this.correctAnswer ? this.numberCorrectAnswers++ : this.numberWrongtAnswers++
           this.numberSamples--
         }
+        this.printInfoTest()
       }
       //render - виведення інформації про тестування на екран
+      printInfoTest() {
+        document.write(`
+        Перевірка з числом : ${this.numberChecking}<br>
+        Кількість правильних відповідей : ${this.numberCorrectAnswers}<br>
+        Кількість неправильних відповідей : ${this.numberWrongtAnswers}<br>
+        `)
+      }
+
       toString() {
         return `
         Перевірка з числом : ${this.numberChecking}<br>
@@ -90,11 +86,12 @@
     }
 
     let multChecker = new MultChecker(7, 2)
-    //==========================
-    // multChecker.exampleGeneration()
-    //==========================
+    // let multChecker1 = new MultChecker(3, 2)
+
     multChecker.checkingAnswer()
-    document.write(multChecker)
+    // multChecker1.checkingAnswer()
+
+    // document.write(multChecker)
 
   </script>
 
