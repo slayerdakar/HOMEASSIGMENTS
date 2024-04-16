@@ -21,18 +21,21 @@
 
     let shootingGallery = {
       arrField: [1, 0, 1, 0, 1],
-      gameRes: function () {
+
+      resShot: function () {
         let userShot = parseInt(prompt('Зробіть постріл від 1 до 5')) - 1
+        let res = false
         if (this.arrField[userShot] === 1) {
           this.arrField[userShot] = 'X'
-          document.write(`Ви влучили : ${this.arrField}`)
+          res = true
         }
-        else {
-          document.write(`Ви не влучили : ${this.arrField}`)
-        }
+        return res
+      },
+      printField: function () {
+        this.resShot() ? document.write(`Ви влучили : ${this.arrField}`) : document.write(`Ви не влучили : ${this.arrField}`)
       }
     }
-    shootingGallery.gameRes()
+    shootingGallery.printField()
 
   </script>
 
