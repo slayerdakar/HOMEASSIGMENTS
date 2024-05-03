@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 1</title>
+  <style>
+    label {
+      display: block;
+    }
+  </style>
+  <script>
+    function calcSum() {
+      const num1 = parseFloat(document.getElementById("first").value)
+      const num2 = parseFloat(document.getElementById("second").value)
+      const sum = num1 + num2
+      document.getElementById("result").value = sum
+    }
+    function calcSubtract() {
+      const num1 = parseFloat(document.getElementById("first").value)
+      const num2 = parseFloat(document.getElementById("second").value)
+      const subtract = num1 - num2
+      document.getElementById("result").value = subtract
+    }
+    function calcMult() {
+      const num1 = parseFloat(document.getElementById("first").value)
+      const num2 = parseFloat(document.getElementById("second").value)
+      if (num1 !== 0 && num2 !== 0) {
+        const mult = num1 * num2
+        document.getElementById("result").value = mult
+      }
+      else {
+        alert('Значення має бути білше за 0')
+      }
+    }
+    function calcDiv() {
+      const num1 = parseFloat(document.getElementById("first").value)
+      const num2 = parseFloat(document.getElementById("second").value)
+      if (num1 !== 0 && num2 !== 0) {
+        const div = num1 / num2
+        document.getElementById("result").value = div
+      }
+      else {
+        alert('Значення має бути білше за 0')
+      }
+    }
+
+    window.onload = function () {
+      document.getElementById("sum").onclick = calcSum
+      document.getElementById("subtract").onclick = calcSubtract
+      document.getElementById("mult").onclick = calcMult
+      document.getElementById("div").onclick = calcDiv
+    }
+  </script>
+</head>
+
+<body>
+  <label>
+    First nuber
+    <input id="first" type="text" value="0" />
+  </label>
+  <label>
+    Second nuber
+    <input id="second" type="text" value="0" />
+  </label>
+  <button id="sum">Додати</button>
+  <button id="subtract">Відняти</button>
+  <button id="mult">Помножити</button>
+  <button id="div">Поділити</button>
+  <hr />
+  <label>
+    Результат
+    <input id="result" type="text" value="0" />
+  </label>
+</body>
+
+</html>

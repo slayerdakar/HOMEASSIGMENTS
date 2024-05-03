@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 3</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <label>
+    Рік народження
+    <input id="year" type="number" value="0" />
+  </label>
+  <hr />
+  <button id="btn">К-сь років</button>
+  <br>
+  <input id="sumEuro" type="text" value="0" />
+</body>
+<script>
+
+  function getAge() {
+    const NOW_YEAR = new Date().getFullYear();
+    const year = parseInt(document.getElementById('year').value)
+    const res = NOW_YEAR - year
+    document.getElementById('sumEuro').value = res
+  }
+
+  document.getElementById('btn').onclick = getAge
+
+
+</script>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 6</title>
+  <style>
+    table {
+      border: solid 1px gray;
+    }
+
+    td {
+      border: solid 1px gray;
+      text-align: center;
+    }
+  </style>
+  <script>
+    function createTableInputs(numEstimates) {
+      const tableContainer = document.createElement('div')
+      tableContainer.setAttribute('class', 'cnt')
+      const table = document.createElement('table')
+      const btn = document.createElement('button')
+      btn.innerText = 'get sum'
+      btn.setAttribute('class', 'btnRes')
+      const trEl = document.createElement('tr')
+      for (let c = 0; c < numEstimates; c++) {
+        const tdEl = document.createElement('td')
+        const input = document.createElement('input')
+        input.setAttribute('class', 'inputNum')
+        input.setAttribute('type', 'number')
+        tdEl.append(input)
+        trEl.append(tdEl)
+      }
+      table.append(trEl)
+      tableContainer.append(table)
+      tableContainer.append(btn)
+      btn.onclick = getAverageValue
+      return tableContainer
+    }
+    function addTable() {
+      const numEstimates = document.getElementById('priceNum').value
+      document.body.append(createTableInputs(numEstimates))
+    }
+
+    function getAverageValue() {
+      let sum = 0
+      const result = document.createElement('p')
+      const listInput = document.querySelectorAll('.inputNum')
+      for (const el of listInput) {
+        sum += parseInt(el.value)
+      }
+      let average = sum / listInput.length
+      result.innerText = `Average num = ${average}`
+      document.querySelector('.cnt').append(result)
+    }
+
+    window.onload = function () {
+      document.getElementById('getTable').onclick = addTable
+    }
+  </script>
+</head>
+
+<body>
+  <label>
+    Price number
+    <input id="priceNum" type="number">
+  </label>
+  <br>
+  <button id="getTable">Get table</button>
+</body>
+
+</html>

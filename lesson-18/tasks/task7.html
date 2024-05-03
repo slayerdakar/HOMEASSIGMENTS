@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 6</title>
+  <style>
+    /* table {
+      border: solid 1px gray;
+    }
+
+    td {
+      border: solid 1px gray;
+      text-align: center;
+    } */
+    select {
+      width: 200px;
+    }
+  </style>
+  <script>
+
+    function getTotalPrice() {
+      let sum = 0
+      const transport = document.getElementById('transport').value
+      sum += parseFloat(transport)
+      const nutrition = document.getElementById('nutrition')
+      for (const elN of nutrition.getElementsByTagName('input')) {
+        if (elN.checked) sum += parseFloat(elN.value)
+      }
+      const guides = document.getElementById('guides')
+      let guideName
+      for (const elG of guides.getElementsByTagName('input')) {
+        if (elG.checked) {
+          guideName = elG.value
+          break
+        }
+      }
+      const printResult = document.createElement('p')
+      printResult.innerText = `Загальна сума складає: ${sum} \n Ваш гід: ${guideName}`
+      document.body.append(printResult)
+    }
+
+    window.onload = function () {
+      document.getElementById('getSum').onclick = getTotalPrice
+    }
+  </script>
+</head>
+
+<body>
+
+  <div>
+    <label>
+      <strong>Вид транспорту</strong>
+      <select id="transport">
+        <option value="5000">авто</option>
+        <option value="3000">автобус</option>
+        <option value="4000">літак</option>
+      </select>
+    </label>
+  </div>
+  <div id="nutrition">
+    <h2>Харчування:</h2>
+    <label>
+      Сніданок
+      <input value="50" type="checkbox">
+    </label><br>
+    <label>
+      Обід
+      <input value="100" type="checkbox">
+    </label><br>
+    <label>
+      Вечеря
+      <input value="120" type="checkbox">
+    </label>
+  </div>
+  <div id="guides">
+    <h2>Гід:</h2>
+    <label>
+      Іван
+      <input checked value="Іван" name="guides" type="radio">
+    </label><br>
+    <label>
+      Василь
+      <input value="Василь" name="guides" type="radio">
+    </label><br>
+    <label>
+      Володя
+      <input value="Володя" name="guides" type="radio">
+    </label>
+  </div>
+
+  <button id="getSum">Загальна вартість</button>
+</body>
+
+</html>

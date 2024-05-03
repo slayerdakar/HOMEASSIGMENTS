@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 4</title>
+  <style>
+    label {
+      display: block;
+    }
+  </style>
+
+</head>
+
+<body>
+
+</body>
+<script>
+  const arrDesires = [
+    'Заробити гроші альтернативним шляхом',
+    'Купити собі жовті окуляри від сонця',
+    'Намалювати картину масляними фарбами',
+    'Навчитися їздити на велосипеді без рук',
+    'робити суші вдома',
+    'Взяти участь в 5 благодійних акціях',
+    'Записати под-каст',
+    'Організувати флеш-моб'
+  ]
+
+  function printRandomDesires(listDesires, numDesires = 3) {
+    for (let index = 0; index < numDesires; index++) {
+      const randomIndex = Math.floor(Math.random() * listDesires.length)
+      const divEl = document.createElement('div')
+      divEl.innerText = listDesires[randomIndex]
+      document.body.append(divEl)
+    }
+  }
+
+  printRandomDesires(arrDesires, 3)
+
+</script>
+
+</html>

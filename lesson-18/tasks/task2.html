@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 2</title>
+  <style>
+    label {
+      display: block;
+    }
+  </style>
+  <script>
+    const exchangeRates = {
+      euro: 42.2,
+      dollar: 39.6
+    }
+
+    function currencyConversion() {
+      const sumGrn = parseFloat(document.getElementById('sumGrn').value)
+      if (sumGrn !== 0) {
+        const resEuro = sumGrn / exchangeRates.euro
+        const resDollar = sumGrn / exchangeRates.dollar
+        document.getElementById("sumEuro").value = parseFloat(resEuro.toFixed(2))
+        document.getElementById("sumDollar").value = parseFloat(resDollar.toFixed(2))
+      }
+      else {
+        alert('Значення має бути білше за 0')
+      }
+    }
+
+    window.onload = function () {
+      document.getElementById('conv').onclick = currencyConversion
+    }
+  </script>
+</head>
+
+<body>
+  <label>
+    Сума в гривнях
+    <input id="sumGrn" type="text" value="0" />
+  </label>
+  <button id="conv">Конвертувати</button>
+  <hr />
+  <label>
+    Сума в евро
+    <input id="sumEuro" type="text" value="0" />
+  </label>
+  <label>
+    Сума в доларах
+    <input id="sumDollar" type="text" value="0" />
+  </label>
+</body>
+
+</html>
