@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 1</title>
+  <style>
+
+  </style>
+  <script>
+
+    function paintOverTheFollowing(e) {
+      const thisDiv = e.target
+      let divEl = thisDiv
+      while (divEl.nextElementSibling !== null) {
+        divEl = divEl.nextElementSibling
+        divEl.style.color = 'red'
+      }
+    }
+
+    window.onload = function () {
+      document.getElementById('cnt').onclick = paintOverTheFollowing
+
+    }
+  </script>
+</head>
+
+<body>
+  <div id="cnt">
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+  </div>
+</body>
+
+</html>

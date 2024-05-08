@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 7</title>
+  <style>
+    body {
+      margin: 0;
+      text-align: center;
+    }
+
+    img {
+      width: 20px;
+      position: absolute;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      const snowflake = document.getElementById('snowflake')
+      const snowflakeHeight = snowflake.offsetHeight
+      const winHeight = window.innerHeight
+      let num = 0
+      let maxTop = winHeight
+      setInterval(() => {
+        num += 0.4
+        snowflake.style.top = `${num}px`
+        if (num > (maxTop - snowflakeHeight)) {
+          num = 0
+        }
+      }, 10)
+    }
+  </script>
+</head>
+
+<body>
+  <img id="snowflake" src="task7-snowflake.png" alt="image">
+</body>
+
+</html>

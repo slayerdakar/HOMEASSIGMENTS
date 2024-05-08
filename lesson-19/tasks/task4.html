@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 4</title>
+  <style>
+    table,
+    td {
+      border: 2px solid #000;
+      text-align: center;
+    }
+  </style>
+  <script>
+
+    function fillAllTdRandomNum(minValue = 1, maxValue = 100) {
+      const allTd = document.getElementsByTagName('TD')
+      for (const td of allTd) {
+        const randNum = minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+        td.innerText = randNum
+      }
+    }
+
+    function colorBorderTable(e) {
+      const thisTd = e.target
+      if (thisTd.tagName === 'TD') {
+        const thisTable = thisTd.closest('.table')
+        thisTable.style.borderColor = 'red'
+        const val = thisTable.nextElementSibling.innerText
+        thisTable.nextElementSibling.innerText = parseInt(val) + 1
+      }
+
+    }
+
+    window.onload = function () {
+      document.getElementById('cnt').onclick = colorBorderTable
+      fillAllTdRandomNum()
+    }
+  </script>
+</head>
+
+<body>
+  <div id="cnt">
+    <h2>Таблиця 1</H2>
+    <table class="table">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <span class="count">0</span>
+    <h2>Таблиця 2</H2>
+    <table class="table">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <span class="count">0</span>
+    <h2>Таблиця 3</H2>
+    <table class="table">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <span class="count">0</span>
+  </div>
+</body>
+
+</html>

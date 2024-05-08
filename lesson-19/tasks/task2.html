@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 2</title>
+  <style>
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  </style>
+  <script>
+
+    function getValues(e) {
+      const input = e.target
+      const inputVal = parseInt(input.value)
+      let el = input.parentElement
+      let inpunVal = inputVal
+      while (el.previousElementSibling !== null) {
+        el = el.previousElementSibling
+        el.firstElementChild.value = inpunVal - 1
+        inpunVal = inpunVal - 1
+      }
+      el = input.parentElement
+      inpunVal = inputVal
+      while (el.nextElementSibling !== null) {
+        el = el.nextElementSibling
+        el.firstElementChild.value = inpunVal + 1
+        inpunVal = inpunVal + 1
+      }
+    }
+
+    window.onload = function () {
+      document.getElementById('inp').oninput = getValues
+
+    }
+  </script>
+</head>
+
+<body>
+  <div class="inputs" id="inp">
+    <label>
+      Value 1
+      <input value="" type="number">
+    </label>
+    <label>
+      Value 2
+      <input value="" type="number">
+    </label>
+    <label>
+      Value 3
+      <input value="" type="number">
+    </label>
+    <label>
+      Value 4
+      <input value="" type="number">
+    </label>
+    <label>
+      Value 5
+      <input value="" type="number">
+    </label>
+  </div>
+</body>
+
+</html>

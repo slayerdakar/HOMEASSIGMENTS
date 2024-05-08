@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 6</title>
+  <style>
+    .cnt {
+      display: flex;
+      gap: 20px;
+    }
+
+    .participants {
+      width: 300px;
+      min-height: 200px;
+      border: 2px solid #000;
+      padding: 5px;
+    }
+
+    .participant {
+      display: flex;
+      justify-content: space-between;
+      border: 2px solid #000;
+      padding: 10px;
+    }
+
+    .participant:not(:last-child) {
+      margin-bottom: 5px;
+    }
+
+    img {
+      width: 40px;
+    }
+
+    img:hover {
+      cursor: pointer;
+    }
+  </style>
+  <script>
+
+
+    const listOfAthletes = ['Christopher Thompson', 'Eden Farrell', 'Noah Andrews', 'Doris Turner', 'Brandon Hailey', 'Jose Thomas', 'Tracy Young']
+    const arrowRight = 'arrow-right.svg'
+    const arrowLeft = 'arrow-left.svg'
+
+    function createParticipant(listOfAthletes, arrowRight) {
+      for (const athlete of listOfAthletes) {
+        const divParticipant = document.createElement('div')
+        divParticipant.classList.add('participant')
+        const participantName = document.createElement('p')
+        participantName.innerText = athlete
+        const iconParticipant = document.createElement('img')
+        iconParticipant.setAttribute('src', arrowRight)
+        divParticipant.append(participantName)
+        divParticipant.append(iconParticipant)
+        const container = document.querySelector('.common-list')
+        container.append(divParticipant)
+      }
+    }
+
+    function movingParticipant(e) {
+      const thisParticipant = e.target
+      const selectedCnt = document.querySelector('.selected-for-competition')
+      const commonCnt = document.querySelector('.common-list')
+      if (thisParticipant.tagName === 'IMG')
+        if (thisParticipant.closest('.common-list')) {
+          thisParticipant.parentElement.remove()
+          thisParticipant.setAttribute('src', arrowLeft)
+          selectedCnt.append(thisParticipant.parentElement)
+        }
+        else {
+          thisParticipant.parentElement.remove()
+          thisParticipant.setAttribute('src', arrowRight)
+          commonCnt.append(thisParticipant.parentElement)
+        }
+    }
+
+    window.onload = function () {
+      createParticipant(listOfAthletes, arrowRight)
+      document.querySelector('.cnt').onclick = movingParticipant
+    }
+  </script>
+</head>
+
+<body>
+  <div class="cnt">
+    <div>
+      <h3>Загальний список</h3>
+      <div class="common-list participants">
+      </div>
+    </div>
+    <div>
+      <h3>Обрані для змагання</h3>
+      <div class="selected-for-competition participants">
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>

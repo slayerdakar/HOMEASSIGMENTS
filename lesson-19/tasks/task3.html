@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 3</title>
+  <style>
+
+  </style>
+  <script>
+
+    function getRandomNum(minValue, maxValue) {
+      return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+    }
+    function printList() {
+      const numElList = getRandomNum(1, 10)
+      const createNumList = document.createElement('ol')
+      for (let i = 0; i < numElList; i++) {
+        const randomNumberLi = getRandomNum(1, 100)
+        const createElementLi = document.createElement('li')
+        createElementLi.innerText = randomNumberLi
+        createNumList.append(createElementLi)
+      }
+      document.body.append(createNumList)
+    }
+
+    function printNumberList(numberList) {
+      for (let num = 0; num < numberList; num++) {
+        printList()
+      }
+      const btn = document.createElement('button')
+      btn.innerText = 'Натисни'
+      btn.setAttribute('id', 'getResult')
+      document.body.append(btn)
+      document.getElementById('getResult').onclick = colorElement
+    }
+
+    function colorElement() {
+      const allList = document.getElementsByTagName('OL')
+      for (const list of allList) {
+        list.children.length % 2 === 0 ? list.style.color = 'green' : list.style.color = 'red'
+      }
+    }
+
+    window.onload = function () {
+      printNumberList(5)
+    }
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
