@@ -11,46 +11,59 @@
     }
   </style>
   <script>
-    function calcSum() {
+    // function calcSum() {
+    //   const num1 = parseFloat(document.getElementById("first").value)
+    //   const num2 = parseFloat(document.getElementById("second").value)
+    //   const sum = num1 + num2
+    //   document.getElementById("result").value = sum
+    // }
+    // function calcSubtract() {
+    //   const num1 = parseFloat(document.getElementById("first").value)
+    //   const num2 = parseFloat(document.getElementById("second").value)
+    //   const subtract = num1 - num2
+    //   document.getElementById("result").value = subtract
+    // }
+    // function calcMult() {
+    //   const num1 = parseFloat(document.getElementById("first").value)
+    //   const num2 = parseFloat(document.getElementById("second").value)
+    //   if (num1 !== 0 && num2 !== 0) {
+    //     const mult = num1 * num2
+    //     document.getElementById("result").value = mult
+    //   }
+    //   else {
+    //     alert('Значення має бути білше за 0')
+    //   }
+    // }
+    // function calcDiv() {
+    //   const num1 = parseFloat(document.getElementById("first").value)
+    //   const num2 = parseFloat(document.getElementById("second").value)
+    //   if (num1 !== 0 && num2 !== 0) {
+    //     const div = num1 / num2
+    //     document.getElementById("result").value = div
+    //   }
+    //   else {
+    //     alert('Значення має бути білше за 0')
+    //   }
+    // }
+
+    function calcResult() {
+      const thisBtnAttribut = this.getAttribute('id')
       const num1 = parseFloat(document.getElementById("first").value)
       const num2 = parseFloat(document.getElementById("second").value)
-      const sum = num1 + num2
-      document.getElementById("result").value = sum
-    }
-    function calcSubtract() {
-      const num1 = parseFloat(document.getElementById("first").value)
-      const num2 = parseFloat(document.getElementById("second").value)
-      const subtract = num1 - num2
-      document.getElementById("result").value = subtract
-    }
-    function calcMult() {
-      const num1 = parseFloat(document.getElementById("first").value)
-      const num2 = parseFloat(document.getElementById("second").value)
-      if (num1 !== 0 && num2 !== 0) {
-        const mult = num1 * num2
-        document.getElementById("result").value = mult
-      }
-      else {
-        alert('Значення має бути білше за 0')
-      }
-    }
-    function calcDiv() {
-      const num1 = parseFloat(document.getElementById("first").value)
-      const num2 = parseFloat(document.getElementById("second").value)
-      if (num1 !== 0 && num2 !== 0) {
-        const div = num1 / num2
-        document.getElementById("result").value = div
-      }
-      else {
-        alert('Значення має бути білше за 0')
-      }
+      let result
+      if (thisBtnAttribut === 'sum') result = num1 + num2
+      else if (thisBtnAttribut === 'subtract') result = num1 - num2
+      else if (thisBtnAttribut === 'mult') result = num1 * num2
+      else if (thisBtnAttribut === 'div') result = num1 / num2
+
+      return document.getElementById("result").value = result
     }
 
     window.onload = function () {
-      document.getElementById("sum").onclick = calcSum
-      document.getElementById("subtract").onclick = calcSubtract
-      document.getElementById("mult").onclick = calcMult
-      document.getElementById("div").onclick = calcDiv
+      const listBtn = document.getElementsByTagName('BUTTON')
+      for (const btn of listBtn) {
+        btn.onclick = calcResult
+      }
     }
   </script>
 </head>

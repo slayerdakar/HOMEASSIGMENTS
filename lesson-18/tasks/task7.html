@@ -6,14 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Task 6</title>
   <style>
-    /* table {
-      border: solid 1px gray;
-    }
-
-    td {
-      border: solid 1px gray;
-      text-align: center;
-    } */
     select {
       width: 200px;
     }
@@ -22,23 +14,19 @@
 
     function getTotalPrice() {
       let sum = 0
-      const transport = document.getElementById('transport').value
-      sum += parseFloat(transport)
-      const nutrition = document.getElementById('nutrition')
-      for (const elN of nutrition.getElementsByTagName('input')) {
-        if (elN.checked) sum += parseFloat(elN.value)
-      }
-      const guides = document.getElementById('guides')
-      let guideName
-      for (const elG of guides.getElementsByTagName('input')) {
-        if (elG.checked) {
-          guideName = elG.value
-          break
+      const stages = document.querySelectorAll('.stage')
+      for (let el = 1; el <= stages.length; el++) {
+        const elTransportId = 'transport' + `${el}`
+        const elNutritionId = 'nutrition' + `${el}`
+        const transport = document.getElementById(elTransportId).value
+        sum += parseFloat(transport)
+        const nutrition = document.getElementById(elNutritionId)
+        for (const elN of nutrition.getElementsByTagName('input')) {
+          if (elN.checked) sum += parseFloat(elN.value)
         }
       }
-      const printResult = document.createElement('p')
-      printResult.innerText = `Загальна сума складає: ${sum} \n Ваш гід: ${guideName}`
-      document.body.append(printResult)
+      const printResultSum = document.getElementById('sum')
+      printResultSum.innerText = `${sum} грн.`
     }
 
     window.onload = function () {
@@ -49,48 +37,139 @@
 
 <body>
 
-  <div>
-    <label>
-      <strong>Вид транспорту</strong>
-      <select id="transport">
-        <option value="5000">авто</option>
-        <option value="3000">автобус</option>
-        <option value="4000">літак</option>
-      </select>
-    </label>
+  <div class="stage">
+    <h2>Подорож етап 1</h2>
+    <div>
+      <label>
+        <strong>Вид транспорту</strong>
+        <select id="transport1">
+          <option value="5000">авто</option>
+          <option value="3000">автобус</option>
+          <option value="4000">літак</option>
+        </select>
+      </label>
+    </div>
+    <div id="nutrition1">
+      <h2>Харчування:</h2>
+      <label>
+        Сніданок
+        <input value="50" type="checkbox">
+      </label><br>
+      <label>
+        Обід
+        <input value="100" type="checkbox">
+      </label><br>
+      <label>
+        Вечеря
+        <input value="120" type="checkbox">
+      </label>
+    </div>
+    <div>
+      <h2>Гід:</h2>
+      <label>
+        Іван
+        <input checked value="Іван" name="guides1" type="radio">
+      </label><br>
+      <label>
+        Василь
+        <input value="Василь" name="guides1" type="radio">
+      </label><br>
+      <label>
+        Володя
+        <input value="Володя" name="guides1" type="radio">
+      </label>
+    </div>
   </div>
-  <div id="nutrition">
-    <h2>Харчування:</h2>
-    <label>
-      Сніданок
-      <input value="50" type="checkbox">
-    </label><br>
-    <label>
-      Обід
-      <input value="100" type="checkbox">
-    </label><br>
-    <label>
-      Вечеря
-      <input value="120" type="checkbox">
-    </label>
+  <div class="stage">
+    <h2>Подорож етап 2</h2>
+    <div>
+      <label>
+        <strong>Вид транспорту</strong>
+        <select id="transport2">
+          <option value="5000">авто</option>
+          <option value="3000">автобус</option>
+          <option value="4000">літак</option>
+        </select>
+      </label>
+    </div>
+    <div id="nutrition2">
+      <h2>Харчування:</h2>
+      <label>
+        Сніданок
+        <input value="50" type="checkbox">
+      </label><br>
+      <label>
+        Обід
+        <input value="100" type="checkbox">
+      </label><br>
+      <label>
+        Вечеря
+        <input value="120" type="checkbox">
+      </label>
+    </div>
+    <div>
+      <h2>Гід:</h2>
+      <label>
+        Іван
+        <input checked value="Іван" name="guides2" type="radio">
+      </label><br>
+      <label>
+        Василь
+        <input value="Василь" name="guides2" type="radio">
+      </label><br>
+      <label>
+        Володя
+        <input value="Володя" name="guides2" type="radio">
+      </label>
+    </div>
   </div>
-  <div id="guides">
-    <h2>Гід:</h2>
-    <label>
-      Іван
-      <input checked value="Іван" name="guides" type="radio">
-    </label><br>
-    <label>
-      Василь
-      <input value="Василь" name="guides" type="radio">
-    </label><br>
-    <label>
-      Володя
-      <input value="Володя" name="guides" type="radio">
-    </label>
+  <div class="stage">
+    <h2>Подорож етап 3</h2>
+    <div>
+      <label>
+        <strong>Вид транспорту</strong>
+        <select id="transport3">
+          <option value="5000">авто</option>
+          <option value="3000">автобус</option>
+          <option value="4000">літак</option>
+        </select>
+      </label>
+    </div>
+    <div id="nutrition3">
+      <h2>Харчування:</h2>
+      <label>
+        Сніданок
+        <input value="50" type="checkbox">
+      </label><br>
+      <label>
+        Обід
+        <input value="100" type="checkbox">
+      </label><br>
+      <label>
+        Вечеря
+        <input value="120" type="checkbox">
+      </label>
+    </div>
+    <div>
+      <h2>Гід:</h2>
+      <label>
+        Іван
+        <input checked value="Іван" name="guides3" type="radio">
+      </label><br>
+      <label>
+        Василь
+        <input value="Василь" name="guides3" type="radio">
+      </label><br>
+      <label>
+        Володя
+        <input value="Володя" name="guides3" type="radio">
+      </label>
+    </div>
   </div>
 
   <button id="getSum">Загальна вартість</button>
+
+  <p>Загальна вартість подорожі складає: <span id="sum">0</span></p>
 </body>
 
 </html>
